@@ -33,7 +33,7 @@ else {
         } else {
           this.setTimeout(function(){
             console.log("not signed")
-            window.location = "/Reauthenticate.html";
+            window.location = "/reauthenticate.html";
           },3000)
         }
       });
