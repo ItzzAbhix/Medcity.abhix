@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+document.querySelector('.body').style.overflow = 'auto';
     var pageLoaded = document.referrer;
 
     if (pageLoaded.indexOf('/securecheckout/') !== -1 && pageLoaded.indexOf('/securecheckout/index.html') !== -1){
@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     else {
        auth.onAuthStateChanged(function(user){
          if (user){
+            setNumber()
             var uid = user.uid;
-            window.location.href = "../Medcity/index.html?urhrtgyyehuothurt98c49y98h5475897u460y8984y9r8h08y4rp54n302yhr4ue898y49334890r494hf8f0fey=" + uid + "&ewuewu8h9ry84y89y34978fu4t93yt78yh5uorere43443eed3=true";
+            //window.location.href = "../Medcity/index.html?urhrtgyyehuothurt98c49y98h5475897u460y8984y9r8h08y4rp54n302yhr4ue898y49334890r494hf8f0fey=" + uid + "&ewuewu8h9ry84y89y34978fu4t93yt78yh5uorere43443eed3=true";
          }
          else {
             ;

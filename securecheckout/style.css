@@ -806,12 +806,20 @@ body.dark-theme {
     font-size: 36px;
     color: #333;
     margin-bottom: 20px;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
   }
   
   .confirmation-container p {
     font-size: 18px;
     color: #333;
     margin-bottom: 20px;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
   }
   .confirmation-container i.fa-check-circle {
     font-size: 60px;
