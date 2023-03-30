@@ -15,10 +15,52 @@
         margin-top: 20px;
     }
     .wrapper .box input {
-        width: 100%;
+        width: 100% !important;
     }
     .wrapper .box button {
+        width: 100% !important;
+        margin-top: 20px;
+    }
+    .em-box {
+width: 100px;
+height: 100px;
+margin-top: 30px;
+}
+.em-box i {
+    font-size: 70px;
+}
+.wrapper2 p {
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-top: 20px;
+}
+.wrapper2 button {
+    width: 100% !important;
+}
+}
+
+@media screen and (max-width:700px){
+    body {
+        margin: 5px;
+    }
+    .header {
+        padding: 10px;
+    }
+    .wrapper img {
+        width: 50%;
+    }
+    .wrapper p {
         width: 100%;
+        white-space: normal;
+        word-wrap: break-word;
+        margin-top: 20px;
+    }
+    .wrapper .box input {
+        width: 55%;
+    }
+    .wrapper .box button {
+        width: 55%;
         margin-top: 20px;
     }
     .em-box {
@@ -38,4 +80,19 @@ margin-top: 30px;
 .wrapper2 button {
     width: 100%;
 }
+.wrapper2 button {
+    width: 100%;
+}
+}
+@media screen and (max-width:968px){
+    .wrapper .box input {
+        width: 50%;
+    }
+    .wrapper .box button {
+        width: 50%;
+        margin-top: 20px;
+    }
+    .wrapper2 button {
+        width: 50%;
+    }
 }

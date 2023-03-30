@@ -127,7 +127,7 @@
   .wrapper input {
     padding: 10px;
     border-radius: 10px;
-    width: 26%;
+    width: 30%;
     height: 55px;
     border: 2px solid #dedede;
     outline: none;
@@ -139,7 +139,7 @@
     border: 2px solid #333;
   }
   .wrapper button {
-    width: 26%;
+    width: 30%;
     padding: 10px;
     color: #fff;
     background-color: #333;
