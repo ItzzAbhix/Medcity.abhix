@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", function(){
 // Get the file name from the URL
 const fileName = url.substring(url.lastIndexOf('/')+1);
 
-if (fileName == "reauthenticate"){
+if (fileName == "reauthenticate.html"){
 
   const counter = document.getElementById("counter");
   
