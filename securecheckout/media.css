@@ -64,7 +64,7 @@
 width: 100%;
 white-space: normal;
 word-wrap: break-word;
-text-align: center;
+text-align: cgooglepay
    }
    .checkoutLoader img {
     width: 160px;
@@ -87,7 +87,30 @@ text-align: center;
     padding: 0;
    }
    .paypal-container .paypal .content .btn-paypal-cont {
+    max-width: 100%;
     text-align: center;
+    width: 100%;
+   }
+   .googlepay-container {
+    width: 100%;
+    height: 100%;
+   }
+   .googlepay {
+    width: 100%;
+    height: 60%;
+    margin-top: 100px;
+    border-radius: 0;
+   }
+   .googlepay-container .googlepay .header .logo img {
+    width: 120px;
+   }
+   .googlepay-container .googlepay .content {
+    padding: 0;
+   }
+   .googlepay-container .googlepay .content .btn-googlepay-cont {
+    max-width: 100%;
+    text-align: center;
+    width: 100% !important;
    }
 }
 
@@ -161,6 +184,47 @@ text-align: center;
         width: 160px;
         height: 160px;
        }
+       .paypal-container {
+        width: 100%;
+        height: 100%;
+       }
+       .paypal {
+        width: 100%;
+        height: 60%;
+        margin-top: 100px;
+        border-radius: 20px;
+       }
+       .paypal-container .paypal .header .logo img {
+        width: 120px;
+       }
+       .paypal-container .paypal .content {
+        padding: 0;
+       }
+       .paypal-container .paypal .content .btn-paypal-cont {
+        text-align: center;
+        width: 70%;
+       }
+       .googlepay-container {
+        width: 100%;
+        height: 100%;
+       }
+       .googlepay {
+        width: 100%;
+        height: 60%;
+        margin-top: 100px;
+        border-radius: 20px;
+       }
+       .googlepay-container .googlepay .header .logo img {
+        width: 120px;
+       }
+       .googlepay-container .googlepay .content {
+        padding: 0;
+       }
+       .googlepay-container .googlepay .content .btn-googlepay-cont {
+        max-width: 100%;
+        text-align: center;
+        width: 72%;
+       }
 }
 
 @media screen and (min-width:700px) {
@@ -179,6 +243,46 @@ text-align: center;
     .btn-gpay img, .btn-paypal img {
         width: 100px;
     }
+    .paypal-container {
+        width: 100%;
+        height: 100%;
+       }
+       .paypal {
+        width: 50%;
+        height: 60%;
+        margin-top: 100px;
+        border-radius:20px;
+       }
+       .paypal-container .paypal .header .logo img {
+        width: 120px;
+       }
+       .paypal-container .paypal .content {
+        padding: 0;
+       }
+       .paypal-container .paypal .content .btn-paypal-cont {
+        text-align: center;
+       }
+       .googlepay-container {
+        width: 100%;
+        height: 100%;
+       }
+       .googlepay {
+        width: 60%;
+        height: 60%;
+        margin-top: 100px;
+        border-radius: 20px;
+       }
+       .googlepay-container .googlepay .header .logo img {
+        width: 120px;
+       }
+       .googlepay-container .googlepay .content {
+        padding: 0;
+       }
+       .googlepay-container .googlepay .content .btn-googlepay-cont {
+        max-width: 100%;
+        text-align: center;
+        width: 50%;
+       }
 }
 @media screen and (min-width:968px){
     .field {
@@ -193,4 +297,44 @@ text-align: center;
     .btn-gpay img, .btn-paypal img {
         width: 100px;
     }
+    .paypal-container {
+        width: 100%;
+        height: 100%;
+       }
+       .paypal {
+        width: 40% ;
+        height: 60%;
+        margin-top: 100px;
+        border-radius: 20px;
+       }
+       .paypal-container .paypal .header .logo img {
+        width: 120px;
+       }
+       .paypal-container .paypal .content {
+        padding: 0;
+       }
+       .paypal-container .paypal .content .btn-paypal-cont {
+        text-align: center;
+       }
+       .googlepay-container {
+        width: 100%;
+        height: 100%;
+       }
+       .googlepay {
+        width: 60%;
+        height: 60%;
+        margin-top: 100px;
+        border-radius: 20px;
+       }
+       .googlepay-container .googlepay .header .logo img {
+        width: 120px;
+       }
+       .googlepay-container .googlepay .content {
+        padding: 0;
+       }
+       .googlepay-container .googlepay .content .btn-googlepay-cont {
+        max-width: 100%;
+        text-align: center;
+        width: 40%;
+       }
 }

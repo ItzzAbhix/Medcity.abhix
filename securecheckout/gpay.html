@@ -8,6 +8,7 @@
           <link rel="icon" href="/assets/favicon.png">
           <!-----------------------------------------------style and js------------------------------------------------------------------------------>
           <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="media.css">
           <script src="/firebaseConfig.js" defer></script>
           <script src="Checkout.js" defer></script>
           <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -78,7 +79,7 @@
     </div>
     <hr>
     <div class="content">
-    <button class="btn btn-googlepay">Pay With Google Pay</button>
+    <button class="btn-googlepay-cont">Pay With Google Pay</button>
     </div>
   </div>
 </div>
@@ -137,7 +138,7 @@
       });
     }
 
-    document.querySelector('.btn-googlepay').onclick = function(){
+    document.querySelector('.btn-googlepay-cont').onclick = function(){
       firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 UserUid = user.uid;
