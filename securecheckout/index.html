@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Checkout</title>
+          <link rel="icon" href="/assets/favicon.png">
+          <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+          <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="media.css">
+         <script src="main.js" defer></script>
+          <script src="/product.js" defer></script>
+          <script src="/firebaseConfig.js" defer></script>
+          <script src="Detailnsert.js" defer></script>
+          <script src="Checkout.js" defer></script>
+          <script src="/reauthenticate.js" defer></script>
+          <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+          <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+          <!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono&family=Source+Sans+Pro&display=swap"
+                    rel="stylesheet">
+          <!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+          <script src="https://kit.fontawesome.com/809920df63.js"></script>
+          <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+          <!--------------------------------------------------end------------------------------------------------------------------------------------------>
+</head>
+
+<body class="body">
+  <div class="error-div">
+    <div class="ico">
+      <i class="fa-solid fa-exclamation-circle"></i>
+    </div>
+    <div class="error">
+      
+      <h3>Error!</h3>
+      <div class="sub">
+        <p></p>
+      </div>
+      
+    </div>
+    <div class="close-btn">
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+          <div class="loader">
+                    <img src="/assets/favicon.png" alt="loader">
+          </div>
+          <div class="checkoutLoader">
+            <img src="/assets/ripple.gif" alt="Hold On Loader">
+            <h2>Hold On While We Process Your Order.......</h2>
+          </div>
+         <div class="modal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.2); z-index: 9999;">
+          <div style="background-color: #F8F9FA; padding: 40px; text-align: center; border-radius: 10px; box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1); position: fixed; top: 5px; left: 50%; transform: translateX(-50%); width: 50%; z-index: 9999;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+            <i class="fas fa-times" style="position: absolute; top: 10px; right: 10px; font-size: 20px; color: gray; cursor: pointer;" onclick="document.querySelector('.modal').style.display='none';"></i>
+            <i class="fas fa-exclamation-circle" style="font-size: 50px; color: #DC3545; margin-bottom: 20px;"></i>
+            <p style="font-size: 22px; margin-top: 20px; margin-bottom: 20px;"><strong>Important Note:</strong></p>
+            <p style="font-size: 18px;">This website is a project website and all payments are fake.
+                <br>
+                <strong style="font-size:21px;font-weight: bold;">Please, do not put real credit card number ,cvv ,expiry date in the fields. Put any number there.</strong>
+                <br>
+              When you click on the pay button you will not have to type any pin, it will redirect you to the checkout page.
+              <br>
+            <strong style="font-size:19px;font-weight: bold;">No Money Will Be Deducted Cause We Don't Know Your Bank Account Details 😊</strong>
+            <br>
+            Feel safe and free to try out our project website.👍👌
+            </p>
+            <i class="fas fa-check-circle" style="font-size: 50px; color: #28A745; margin-top: 20px;"></i>
+            <strong style="font-size: 19;font-weight: bold;">Want to know more about this website and about the developer? Please visit Medcity Creating page by clicking the button below</strong>
+            <br>
+            <button class="btn">
+              Redirect
+            </button>
+          </div>
+      </div>
+      </>
+          <section class="checkout">
+            <div class="container">
+                <div class="navigation">
+          
+                  <div class="logo">
+                     Medcity</div>
+                  <div class="secure">
+                    <span>Secure Checkout</span>
+                  </div>
+                </div>
+                <div class="notification">
+                  Complete Your Purchase
+                </div>
+              </div>
+            </header>
+    <section class="content">
+
+              <div class="details shadow">
+                <div class="details__item">
+          
+                  <div class="item__image">
+                    <img  src="" alt="">
+                  </div>
+                  <div class="item__details">
+                    <div class="item__title">
+                      
+                    </div>
+                    <div class="item__price">
+                      ​ 
+                    </div>
+                    <div class="item__quantity">
+                      
+                    </div>
+                  </div>
+                </div>
+          <hr>
+              
+              <div class="bill-div">
+                <div class="bill-title">
+                  <h2>Shopping Bill:</h2>
+                </div>
+                <div class="bill-de">
+                  <h4>Subtotal: </h4>
+                  <h4 class="price"></h4>
+                </div>
+                <div class="bill-description">
+                  <div class="bill-de">
+                    <h4>Delivery Charges: </h4>
+                    <h4 class="charges"></h4>
+                  </div>
+                  <div class="bill-de">
+                    <h4>Platform Fee:</h4>
+                     <h4 class="fee"></h4>
+                  </div>
+                </div>
+                <hr>
+                <div class="bill-total">
+                  <h3>Total:</h3>
+                  <h3 class="total"></h3>
+                </div>
+              </div> 
+               
+              </div>
+              <div class="discount"></div>
+          
+              <div class="container">
+                <div class="payment" payment-type="cc">
+                  <div class="payment__title">
+                    Payment Method
+                  </div>
+                  <div class="payment__types">
+                    <div class="payment__type payment__type--cc active" cc>
+                      <i class="fa-solid fa-credit-card"></i>Credit Card</div>
+                    <div class="payment__type payment__type--paypal" paypal>
+                      <img src="/assets/payp.png" class="icon">Paypal</div>
+                    <div class="payment__type payment__type--gle" gpay>
+                      <img src="/assets/gpay.png" class="icon">Google Pay</div>
+                  </div>
+          
+                  <div class="payment__info">
+                    <div class="payment-div">
+                    <div class="payment__cc">
+                      <div class="payment__title">
+                        Personal Information
+                      </div>
+                      <form>
+                        <div class="form__cc">
+                          <div class="row">
+                            <div class="field">
+                              <div class="title">Credit Card Number
+                              </div>
+                              
+                              <input type="tel" class="input txt ccn int" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="field small">
+                              <div class="title">Expiry Date
+                              </div>
+                              <select class="input ddl ddl1">
+                                <option selected>00</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                              </select>
+                              <select class="input ddl ddl2">
+                                <option selected>00</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                              </select>
+                            </div>
+                            <div class="field small">
+                              <div class="title">CVV Code
+                              </div>
+                              <input type="text" maxlength="3" class="input txt ccv int" onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="field">
+                              <div class="title">Name on Card
+                              </div>
+                              <input type="text" class="input txt cn int" />
+                            </div>
+                          </div>
+          
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="payment-paypal">
+                      <p>To Paypal Click On The Button Below, You Will Be Redirected To The Paypal Page</p>
+                      <button type="button" class="payment__type-btn btn-paypal" onclick="paypal()"><img src="/assets/paypal.png"> Paypal Now</button>     
+                    </div>
+                    <div class="payment-gpay">
+                      <p>To GooglePay Click On The Button Below, You Will Be Redirected To The GooglePay Page</p>
+                      <button type="button" class="payment__type-btn btn-gpay" onclick="gpay()"><img src="/assets/gpay.png">GooglePay Now</button>  
+                    </div>
+                    </div>
+                    <div class="payment__shipping">
+                      <div class="payment__title">
+                        Shipping Address
+                      </div>
+                      <div class="details__user">
+                        <div class="user__name"></div>
+                        <div class="user__address"></div>
+          
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="actions">
+                  <div class="ch-btndiv">
+                    <button type="button" class="btn btn-checkout" onclick="checkout()">
+                       Place Order
+                    </button>
+                  </div>
+                  <a onclick="window.location = '../Medcity/Product_Detail/'" class="backBtn">Go Back to Shop</a>
+                </div>
+                
+          </section>
+          </section>
+</body>
+</html>

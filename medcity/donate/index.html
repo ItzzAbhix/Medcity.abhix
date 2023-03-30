@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+          <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Medcity | Donate To Us</title>
+                    <link rel="icon" href="/assets/favicon.png">
+                    <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+                     <link rel="stylesheet" href="style.css">
+                     <link rel="stylesheet" href="media.css">
+                     <script src="/firebaseConfig.js" defer></script>
+         <script src="main.js" defer></script>
+         <script src="/logout.js" defer></script>
+         <script src="donate.js" defer></script>
+                   <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+                   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+                   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap&family=Allura&display=swap&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+<script src="https://kit.fontawesome.com/809920df63.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+<!--------------------------------------------------end------------------------------------------------------------------------------------------>
+          </head>
+          <body class="body">
+            <div class="loader">
+                <img src="/assets/loader.gif" alt="loader">
+                <h3 id="text-load">Loading....</h3>
+            </div>
+            <div class="modal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.3); z-index: 9999;display: none;">
+              <div class="popup" style="background-color: #F8F9FA; padding: 40px; text-align: center; border-radius: 10px; box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1); position: fixed; top: 5px; left: 50%; transform: translateX(-50%); width: 50%; z-index: 9999;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <i class="fas fa-times" style="position: absolute; top: 10px; right: 10px; font-size: 20px; color: gray; cursor: pointer;" onclick="document.querySelector('.modal').style.display='none';document.querySelector('.body').style.overflow = 'auto';"></i>
+                <i class="fas fa-exclamation-circle" style="font-size: 50px; color: #DC3545; margin-bottom: 20px;"></i>
+                <p style="font-size: 22px; margin-top: 20px; margin-bottom: 20px;"><strong>Important Note:</strong></p>
+                <p style="font-size: 18px;">This website is a project website and all payments are fake.
+                    <br>
+                    <strong style="font-size:21px;font-weight: bold;">There will be no payments made when donating. The donating is also fake but you name, amount and message will be stored in the database.</strong>
+                    <br>
+                  When you click on the donate button you will be redirected to the thank you page with no payments.
+                  <br>
+                <strong style="font-size:19px;font-weight: bold;">No Money Will Be Deducted Cause We Don't Know Your Bank Account Details 😊</strong>
+                <br>
+                Feel safe and free to try out our project website.👍👌
+                </p>
+                <i class="fas fa-check-circle" style="font-size: 50px; color: #28A745; margin-top: 20px;"></i>
+                <strong style="font-size: 19;font-weight: bold;">Want to know more about this website and about the developer? Please visit Medcity Creating page by clicking the button below</strong>
+                <br>
+                <button class="btn">
+                  Redirect
+                </button>
+              </div>
+          </div>
+          
+          <div class="error-div">
+            <div class="ico">
+              <i class="fa-solid fa-exclamation-circle"></i>
+            </div>
+            <div class="error">
+              
+              <h3>Error!</h3>
+              <div class="sub">
+                <p>The name or amount cannot be blank</p>
+              </div>
+              
+            </div>
+            <div class="close-btn">
+              <i class="fa-solid fa-times"></i>
+            </div>
+          </div>
+          <!--=============== HEADER ===============-->
+          <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">Medcity</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="../index.html" class="nav__link ">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html" class="nav__link active-link ">Donate</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../Book/index.html" class="nav__link">Book appointment</a>
+                        </li>
+                        <li class="nav__item account-li">
+                          <a class="nav__link">Account</a>
+                          <ul class="account-dropdown">
+                              <li class="nav__item" onclick="window.location = '../Account/Settings/index.html'">
+                                  <box-icon name='cog' type='solid' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Settings</a>
+                              </li>
+                              <li class="nav__item" onclick="window.location = '../Account/Orders/index.html'">
+                                  <box-icon name='truck' type='solid' class="drop-box" color="#333"></box-icon>  <a  class="nav__link">  Orders</a>
+                              </li>
+                              <li class="nav__item"  onclick="window.location = '../Account/Donations/index.html'">
+                                  <box-icon type='solid' name='donate-heart' class="drop-box" color="#333"></box-icon>  <a class="nav__link">  Donations</a>
+                              </li>
+                              <li class="nav__item"  onclick="window.location = '../Account/Appointments/index.html'">
+                                  <box-icon type='solid' name='calendar-edit' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Appointments</a>
+                              </li>
+                          </ul>
+                      </li>
+                        <li class="nav__item">
+                            <a href="../Contact/index.html" class="nav__link">Contact us</a>
+                        </li>
+                        <a href="sign/index.html" class="button button__header b">Logout</a>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                  <box-icon name='grid-alt' type='solid' ></box-icon>
+                </div>
+                </nav>
+                </header>
+            <main>
+                <section class="donate container section">
+                    <div class="bannner">
+                      <div class="left">
+                      <div class="title">
+                        <h1>Together We Can</h1>
+                        <h1>Save Lives</h1>
+                      </div>
+                      <div class="text">
+                        <p>A little amount of money donated by you will save lives of many people.</p>
+                        <br>
+                        <button class="donate-btn "> Start With A Little <i class="fa-solid fa-heart"></i></button>
+                      </div>
+                      </div>
+                    
+                    </div>
+                    <div class="space">
+                      spacer
+                    </div>
+                    <div class="donation">
+                    <div class="sub-title">
+                      <h1>Donate Now</h1>
+                    </div>
+                    <div class="page">
+                      <div class="tab">
+                        <h3>Amount:</h3>
+                      </div>
+                      <div class="amount-div">
+                        <div class="amount-option">₹50</div>
+                        <div class="amount-option">₹150</div>
+                        <div class="amount-option">₹200</div>
+                        <div class="amount-option">₹500</div>
+                        <div class="amount-option">₹1000</div>
+                        <div class="amount-option">₹2500</div>
+                      </div>
+                      <div class="inputBox">
+                        <input value="₹10" max="5" class="amount-i" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                      </div>
+                      <div class="tab" style="margin-top:40px;">
+                        <h3>Any Message For The World?</h3>
+                      </div>
+                      <div class="inputBox">
+                        <textarea class="msg"></textarea>
+                      </div>
+                      <div class="tab" style="margin-top: 40px;">
+                        <h3>Your Name?</h3>
+                      </div>
+                      <div class="inputBox">
+                        <input class="name-i">
+                      </div>
+                      <div class="inputBox">
+                      <button class="don-btn" type="button" onclick="donate()">Donate</button>
+                      </div>
+                    </div>
+                    </div>
+
+                </section>
+            </main>
+            
+        <!--=============== FOOTER ===============-->
+        <footer class="footer section">
+          <div class="footer__container container grid">
+              <div class="footer__content">
+                  <a href="#" class="footer__logo">Medcity</a>
+                  <p class="footer__description">Get medcines faster. <br> Book appointment with doctor</p>
+              </div>
+
+              <div class="footer__content">
+                  <h3 class="footer__title">Attribution</h3>
+                  <ul class="footer__links">
+                    <a href="https://fontawesome.com" class="footer__link">Icons by Font Awesome</a>
+                    <a href="https://boxicons.com" class="footer__link">Icons by Boxicons</a>
+                  </ul>
+              </div>
+
+              <div class="footer__content">
+                  <h3 class="footer__title">Our Office</h3>
+                  <ul class="footer__links">
+                      <li><a href="#" class="footer__link">+0123456789</a></li>
+                      <li><a href="#" class="footer__link">Mumbai</a></li>
+                      <li><a href="#" class="footer__link">medcity@crew.com</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <p class="footer__copy">&#169;Medcity. All right reserved</p>
+      </footer>
+
+                </body>
+                </html>

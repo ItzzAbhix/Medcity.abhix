@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Looks Like You Are Trapped In An Error</title>
+        <link rel="icon" href="assets/favicon.png">
+<!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+<script src="https://kit.fontawesome.com/809920df63.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    </head>
+    <body>
+        <section class="error">
+            <div class="error-div-big">
+                <i class="fa-solid fa-exclamation-circle"></i>
+                <h1>Oh No! Looks like you got an error</h1>
+                <p>There was an error while fetching some details from you account.<br>
+                  Please login again to continue with medcity.
+                </p>
+                <button type="button" onclick="window.location.href = 'sign/index.html'"> Login Again</button>
+
+                <br>
+                <p>Note: If this error persist, please contact us on <a onclick="window.open('https://mail.google.com/mail/?view=cm&to=medcity.crew@gmail.com')">medcity.crew@gmail.com</a> or fill out the contact form from here - <a href="https://medcity-abhix.epizy.com#contact">Contact Form</a></a></p>
+            </div>
+        </section>
+    </body>
+    <style>
+      .error {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        font-family: 'Poppins',sans-serif;
+        color: #333;
+      }
+      .error-div-big {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+      }
+       .fa-exclamation-circle {
+        font-size: 100px;
+        color: rgb(241, 51, 51);
+       }
+       .error-div-big h1 {
+        font-size: 30px;
+       }
+       .error-div-big p {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: 1px;
+       }
+       button {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: #fff;
+        background-color: #333;
+        border: 0px solid;
+        outline: none;
+        padding: 10px;
+        border-radius: 5px;
+        transition: .3s all ease;
+        cursor: pointer;
+        width: 20%;
+       }
+       a {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+       }
+    </style>
+</html>

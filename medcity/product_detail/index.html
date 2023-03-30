@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Medcity | Product Detail</title>
+          <link rel="icon" href="/assets/favicon.png">
+          <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+          <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="media.css">
+          <script src="main.js" defer></script>
+          <script src="/reauthenticate.js" defer></script>
+          <script src="/product.js" defer></script>
+          <script src="/firebaseConfig.js" defer></script>
+          <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+            <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+          <!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono&family=Source+Sans+Pro&display=swap"
+                    rel="stylesheet">
+          <!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+          <script src="https://kit.fontawesome.com/809920df63.js"></script>
+          <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+          <!--------------------------------------------------end------------------------------------------------------------------------------------------>
+</head>
+
+<body class="body">
+   <div class="error-div">
+      <div class="ico">
+        <i class="fa-solid fa-exclamation-circle"></i>
+      </div>
+      <div class="error">
+        
+        <h3>Error!</h3>
+        <div class="sub">
+          <p></p>
+        </div>
+        
+      </div>
+      <div class="close-btn" onclick="close_error()">
+        <i class="fa-solid fa-times"></i>
+      </div>
+    </div>
+          <div class="loader">
+                    <img src="/assets/favicon.png" alt="loader">
+          </div>
+          <header>
+            <div class="nav">
+               <button type="button" class="back-btn">
+                  <i class="fa-solid fa-arrow-left"></i>
+               </button>
+               
+               <h3>Medcity</h3>
+               <h3>Product Detail</h3>
+            </div>
+          </header>
+       <main>
+          <section class="container section product">
+            <div class="big-wrapper">
+               <div class="left-div">
+                  <img src="" class="product-img">
+               </div>
+               <div class="right-div">
+                  <div class="location-div">
+                     <h5>Home/</h5>
+                     <h5 class="location-h5"></h5>
+                  </div>
+                  <div class="product-title">
+                     <h1></h1>
+                  </div>
+                  <div class="price-div">
+                     <h4></h4>
+                  </div>
+                  <div class="quantity-div row">
+                     <h4>Quantity: </h4>
+                     <select>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                     </select>
+                  </div>
+                  <div class="buy-div">
+                     <button class="buy-btn" onclick="buy()">Buy Now</button>
+                  </div>
+                  <div class="description-div">
+                     <div class="row">
+                        <h4>Product Type: </h4>
+                        <h4 class="d-type"></h4>
+                     </div>
+                     <div class="row">
+                        <h4>Country Of Orgin: </h4>
+                        <h4 class="d-origin">India</h4>
+                     </div>
+                     <div class="row">
+                        <h4>Ratings:</h4>
+                        <h4 class="d-rate">
+                                       
+                        </h4>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </section>
+       </main>
+<html>
+

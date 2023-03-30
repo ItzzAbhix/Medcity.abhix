@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Checkout</title>
+          <link rel="icon" href="/assets/favicon.png">
+          <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+          <link rel="stylesheet" href="style.css">
+          <script src="/firebaseConfig.js" defer></script>
+          <script src="Checkout.js" defer></script>
+          <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+          <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+          <!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono&family=Source+Sans+Pro&display=swap"
+                    rel="stylesheet">
+          <!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+          <script src="https://kit.fontawesome.com/809920df63.js"></script>
+          <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+          <!--------------------------------------------------end------------------------------------------------------------------------------------------>
+</head>
+<body>
+  <div class="error-div">
+    <div class="ico">
+      <i class="fa-solid fa-exclamation-circle"></i>
+    </div>
+    <div class="error">
+      
+      <h3>Error!</h3>
+      <div class="sub">
+        <p></p>
+      </div>
+      
+    </div>
+    <div class="close-btn">
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+    <div class="modal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.2); z-index: 9999;">
+    <div style="background-color: #F8F9FA; padding: 40px; text-align: center; border-radius: 10px; box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1); position: fixed; top: 40px; left: 50%; transform: translateX(-50%); width: 50%; z-index: 9999;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+      <i class="fas fa-times" style="position: absolute; top: 10px; right: 10px; font-size: 20px; color: gray; cursor: pointer;" onclick="document.querySelector('.modal').style.display='none';"></i>
+      <i class="fas fa-exclamation-circle" style="font-size: 50px; color: #DC3545; margin-bottom: 20px;"></i>
+      <p style="font-size: 22px; margin-top: 20px; margin-bottom: 20px;"><strong>Important Note:</strong></p>
+      <p style="font-size: 18px;">This website is a project website and all payments are fake.
+          <br>
+        When you click on the pay button you will not have to type any pin, it will redirect you to the checkout page.
+        <br>
+      <strong style="font-size:19px;font-weight: bold;">No Money Will Be Deducted Cause We Don't Know Your Bank Account Details 😊</strong>
+      <br>
+      Feel safe and free to try out our project website.👍👌
+      </p>
+      <i class="fas fa-check-circle" style="font-size: 50px; color: #28A745; margin-top: 20px;"></i>
+      <strong style="font-size: 19;font-weight: bold;">Want to know more about this website and about the author? Please visit Medcity Creating page by clicking the button below</strong>
+      <br>
+      <button class="btn">
+        Redirect
+      </button>
+    </div>
+  </div>
+
+  <!--------Googling-------->
+<div class="googlepay-container">
+  <div class="googlepay">
+    <div class="header">
+      <div class="logo">
+        <img src="/assets/gpay.png">
+      </div>
+      <div class="logo-title">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h4></h4>
+      </div>
+    </div>
+    <hr>
+    <div class="content">
+    <button class="btn btn-googlepay">Pay With Google Pay</button>
+    </div>
+  </div>
+</div>
+
+<!------checkout loader--------------->
+<div class="checkoutLoader">
+  <img src="/assets/ripple.gif" alt="Hold On Loader">
+  <h2>Hold On While We Process Your Order.......</h2>
+</div>
+
+  <script>
+    function show_error(error){
+  var erorr_div = document.querySelector('.error-div');
+  var error_p = erorr_div.querySelector('.error .sub p');
+ 
+  error_p.innerHTML = error;
+  erorr_div.style.zIndex = "999999";
+  erorr_div.style.right = "10px";
+ 
+  setTimeout(function(){
+     error_p.innerHTML = "eerorr";
+     erorr_div.style.right = "-100%";
+     erorr_div.style.zIndex = "1";
+  },10000)
+ }
+    document.addEventListener('DOMContentLoaded', () => {
+          var pageLoaded = document.referrer;
+
+          if (pageLoaded.indexOf('/SecureCheckout/index.html') !== -1){
+            ;
+          }
+          else {
+            auth.onAuthStateChanged(function(user){
+              if (user){
+                var uid = user.uid;
+               // window.location.href = "../Medcity/index.html?hureureeruoouho7893o3u8984ps84y49038434840943y834343y4083y438434y08=" + uid + "&opju33699634uy04949h43jruorwrrhrwrwrhwiyrrror8787r=true";
+              }
+              else {
+                ;
+              }
+            })
+          }
+    });
+
+    window.onload = function(){
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            var UserUid = user.uid;
+          db.ref(usersRef).child(UserUid).child(checkoutChild).once('value').then(function(snapshot){
+            var price = snapshot.val().totalAmount;
+            document.querySelector('.logo-title h4').innerHTML = "₹"+ price;
+          })
+        } else {
+          ;
+        }
+      });
+    }
+
+    document.querySelector('.btn-googlepay').onclick = function(){
+      firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                UserUid = user.uid;
+                     WorkForCreditor(UserUid)
+
+            } else {
+              ;
+            }
+          });
+    }
+
+  </script>
+  </body>
+</html>

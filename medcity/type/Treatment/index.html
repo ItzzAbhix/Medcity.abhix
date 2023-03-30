@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Medcity | Shop</title>
+          <link rel="icon" href="/assets/favicon.png">
+          <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+          <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="media.css">
+          <script src="main.js" defer></script>
+          <script src="/product.js" defer></script>
+          <script src="pagination.js" defer></script>
+          <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+          <script src="/logout.js" defer></script>
+          <script src="/firebaseConfig.js" defer></script>
+          <script src="/reauthenticate.js" defer></script>
+            <!-----------------------------------custom tag--------------------------------->
+        
+            <script src="https://cdn.jsdelivr.net/gh/abhicodelink/custom-title-tag@master/custom-tag.bundle.js"
+            defer></script>
+  <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/abhicodelink/custom-title-tag@master/custom-tag.bundle.css">
+<!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+          <!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Source+Sans+Pro&display=swap"
+                    rel="stylesheet">
+          <!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+          <script src="https://kit.fontawesome.com/809920df63.js"></script>
+          <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+          <!--------------------------------------------------end------------------------------------------------------------------------------------------>
+</head>
+
+<body class="body">
+          <div class="loader">
+                    <img src="/assets/loader.gif" alt="loader">
+                    <h3 id="text-load">Loading....</h3>
+          </div>
+          <!--=============== HEADER ===============-->
+          <header class="header" id="header">
+                    <nav class="nav container">
+                              <a href="index.html" class="nav__logo">Medcity</a>
+
+                              <div class="nav__menu" id="nav-menu">
+                                        <ul class="nav__list">
+                                                  <li class="nav__item">
+                                                            <a href="../../index.html" class="nav__link active-link ">Home</a>
+                                                  </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Donate/index.html"
+                                                                      class="nav__link ">Donate</a>
+                                                  </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Book/index.html" class="nav__link">Book
+                                                                      appointment</a>
+                                                  </li>
+                                                  <li class="nav__item account-li">
+                                                    <a class="nav__link">Account</a>
+                                                    <ul class="account-dropdown">
+                                                        <li class="nav__item" onclick="window.location = '../../Account/Settings/index.html'">
+                                                            <box-icon name='cog' type='solid' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Settings</a>
+                                                        </li>
+                                                        <li class="nav__item" onclick="window.location = '../../Account/Orders/index.html'">
+                                                            <box-icon name='truck' type='solid' class="drop-box" color="#333"></box-icon>  <a  class="nav__link">  Orders</a>
+                                                        </li>
+                                                        <li class="nav__item"  onclick="window.location = '../../Account/Donations/index.html'">
+                                                            <box-icon type='solid' name='donate-heart' class="drop-box" color="#333"></box-icon>  <a class="nav__link">  Donations</a>
+                                                        </li>
+                                                        <li class="nav__item"  onclick="window.location = '../../Account/Appointments/index.html'">
+                                                            <box-icon type='solid' name='calendar-edit' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Appointments</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Contact/index.html" class="nav__link">Contact
+                                                                      us</a>
+                                                  </li>
+                                                  <a href="sign/index.html" class="button button__header b">Logout</a>
+                                        </ul>
+                              </div>
+
+                              <div class="nav__toggle" id="nav-toggle">
+                                        <box-icon name='grid-alt' type='solid'></box-icon>
+                              </div>
+                    </nav>
+          </header>
+          <section class="section container shop">
+                    <div class="banner">
+                              <div class="column">
+                                        <div class="row justify-space">
+                                                  <div class="path row center">
+                                                            <a style="color:white" href="../../index.html">Home</a>/<h5>
+                                                                      Treatment</h5>
+                                                  </div>
+
+                                                  <mid-title class="banner-title">Shop</mid-title>
+
+                                                  <div class="results row center">
+                                                            <h5>Showing </h5>
+                                                            <h5 class="pagi-re"> 1-12 </h5>
+                                                            <h5>Of 24 Results</h5>
+                                                  </div>
+
+                                        </div>
+                              </div>
+                    </div>
+                    <div class="big-products">
+
+                     <div class="products">
+                             <div class="cards">
+                               <div class="card">
+                                 <div class="column">
+                                   <img src="/assets/Medicines/Type/Treatment/Page 1/abzorb_dusting_powder_100gm_39756_0_2.jpg" class="card-img">
+                                   <h3>Abzorb Dusting Powder 100gm</h3>
+                                   <div class="row justify-space">
+                                     <div class="review">
+                                       <span>Reviews</span>
+                                       <div class="rate">
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                       </div>
+                                     </div>
+                                     <div class="cost">
+                                       <h4 class="price">Rs. 60.22</h4>
+                                     </div>
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                               </div>
+                               <div class="card">
+                                 <div class="column">
+                                   <img src="/assets/Medicines/Type/Treatment/Page 1/depura_vitamin_d3_oral_solution_60k_sugar_free_5_ml_4s_0_0.jpg" class="card-img">
+                                   <h3>DePURA 60000 IU Oral Solution 5 ml</h3>
+                                   <div class="row justify-space">
+                                     <div class="review">
+                                       <span>Reviews</span>
+                                       <div class="rate">
+                                         <i class="fa-solid fa-star stars"></i>
+                                       </div>
+                                     </div>
+                                     <div class="cost">
+                                       <h4 class="price">Rs. 45.77</h4>
+                                     </div>
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                               </div>
+                               <div class="card">
+                                 <div class="column">
+                                   <img src="/assets/Medicines/Type/Treatment/Page 1/maxirich_multivitamin_and_minerals_softgels_10s_0_0.jpg" class="card-img">
+                                   <h3>Maxirich Multivitamin and Minerals Softgels 10's</h3>
+                                   <div class="row justify-space">
+                                     <div class="review">
+                                       <span>Reviews</span>
+                                       <div class="rate">
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                       </div>
+                                     </div>
+                                     <div class="cost">
+                                       <h4 class="price">Rs. 240.59</h4>
+                                     </div>
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                               </div>
+                               <div class="card">
+                                 <div class="column">
+                                     <img src="/assets/Medicines/Type/Treatment/Page 1/digene_gel_for_acidity_gas_relief_mint_flavour_450_ml_0_3.jpg" class="card-img">
+                                     <h3>Digene Acidity & Gas Relief Gel - Mint Flavour 450 ml</h3>
+                                     <div class="row justify-space">
+                                         <div class="review">
+                                             <span>Reviews</span>
+                                             <div class="rate">
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                             </div>
+                                         </div>
+                                         <div class="cost">
+                                             <h4 class="price">Rs. 122.39</h4>
+                                         </div>
+                                     </div>
+                                     <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                             </div>
+                             <div class="card">
+                                 <div class="column">
+                                     <img src="/assets/Medicines/Type/Treatment/Page 1/moov_pain_relief_specialist_cream_50_gm_0.jpg" class="card-img">
+                                     <h3>Moov Pain Relief Specialist Cream 50 gm</h3>
+                                     <div class="row justify-space">
+                                         <div class="review">
+                                             <span>Reviews</span>
+                                             <div class="rate">
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                             </div>
+                                         </div>
+                                         <div class="cost">
+                                             <h4 class="price">Rs. 100.76</h4>
+                                         </div>
+                                     </div>
+                                     <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Treatment/Page 1/cofsils_lozenges_ginger_lemon_10s_0_1.jpg" class="card-img">
+                                 <h3>Cofsils Lozenges - Ginger Lemon 10's</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 10.00</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Treatment/Page 1/omnigel_gel_topical_75gm_0.jpg" class="card-img">
+                                 <h3>Omnigel Gel(Topical) 75gm</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star-half stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 110.32</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Treatment/Page 1/tetmosol_medicated_soap_100_gm_37098_0_2.jpg" class="card-img">
+                                 <h3>Tetmosol Medicated Soap 100 gm</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star-half stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 30.55</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Treatment/Page 1/truuthon_ultra_power_pain_relief_spray_55_gm_472654_0_1.jpg" class="card-img">
+                                 <h3>Truuthon Ultra Power Pain Relief Spray 55 gm</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star-half stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 100.56</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Treatment/Page 1/vicks_vaporub_50_ml_0.jpg" class="card-img">
+                                 <h3>Vicks Vaporub 50 ml</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 50.27</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Treatment/Page 1/volini_joint_xpert_geltopical_20gm_0_1.jpg" class="card-img">
+                                 <h3>VOLINI JOINT XPERT Gel(Topical) 20gm</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star-half stars"></i>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 40.47</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                                       <div class="card">
+                                                 <div class="column">
+                                                           <img src="/assets/Medicines/Type/Treatment/Page 1/volini_pain_relief_spray_15_gm_with_free_volini_pain_relief_gel_4_gm_466329_0_0.jpg" class="card-img">
+                                                           <h3>Volini Spray 15gm</h3>
+                                                           <div class="row justify-space">
+                                                                     <div class="review">
+                                                                               <span>Reviews</span>
+                                                                             <div class="rate">
+                                                                               <i class="fa-solid fa-star stars"></i>
+                                                                               <i class="fa-solid fa-star stars"></i>
+                                                                               <i class="fa-solid fa-star stars"></i>
+                                                                               <i class="fa-solid fa-star stars"></i>
+                                                                             </div>
+                                                                     </div>
+                                                                     <div class="cost">
+                                                                               <h4 class="price">Rs. 20.50</h4>
+                                                                     </div>
+                                       
+                                                           </div>
+                                                           <button class="button buy-btn">Buy Now</button>
+                                                 </div>
+                                       </div>
+                             </div>
+                     </div>
+                     <div class="products">
+         <div class="cards">
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Treatment/Page 2/amrutanjan_advanced_back_pain_roll_on_50_ml_0_0.jpg" class="card-img">
+               <h3>Amrutanjan Advanced Back Pain + Roll-On 50 ml</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                   </div>
+                 </div>
+                 <div class="cost">
+                   <h4 class="price">Rs. 35.10</h4>
+                 </div>
+               </div>
+               <button class="button buy-btn">Buy Now</button>
+             </div>
+           </div>
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Treatment/Page 2/canesten_antifungal_dusting_powder_50g_0_1.jpg" class="card-img">
+               <h3>Canesten Antifungal Dusting Powder 100g</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star-half stars"></i>
+                   </div>
+                 </div>
+                 <div class="cost">
+                   <h4 class="price">Rs. 50.21</h4>
+                 </div>
+               </div>
+               <button class="button buy-btn">Buy Now</button>
+             </div>
+           </div>
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Treatment/Page 2/collaflex_pro_sachets_12_1_gm_125844_0_2.jpg" class="card-img">
+               <h3>CollaFlex Pro Sachets 12.1 gm</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star-half stars"></i>
+                   </div>
+                 </div>
+                 <div class="cost">
+                   <h4 class="price">Rs. 80.21</h4>
+                  </div>
+                </div>
+                <button class="button buy-btn">Buy Now</button>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="column">
+                <img src="/assets/Medicines/Type/Treatment/Page 2/cremaffin_syrup_for_constipation_relief_mint_flavour_225_ml_0_4.jpg" class="card-img">
+                <h3>Cremaffin Constipation Relief Liquid - Mint 225ml</h3>
+                <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star-half stars"></i>
+                    </div>
+                  </div>
+                  <div class="cost">
+                   <h4 class="price">Rs. 190.34</h4>
+                 </div>
+               </div>
+               <button class="button buy-btn">Buy Now</button>
+             </div>
+            </div>
+            
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Treatment/Page 2/dr_morpen_burnol_cream_20_gm_0_0.jpg" class="card-img">
+               <h3>Dr.Morepen Burnol Cream 20 gm</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star-half stars"></i>
+                    </div>
+                  </div>
+                  <div class="cost">
+                    <h4 class="price">Rs. 30.75</h4>
+                  </div>
+                </div>
+                <button class="button buy-btn">Buy Now</button>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="column">
+                <img src="/assets/Medicines/Type/Treatment/Page 2/amrutanjan_pain_balm_extra_power_50_ml_0.jpg" class="card-img">
+                <h3>Amrutanjan Pain Balm - Extra Power 50 ml</h3>
+                <div class="row justify-space">
+                  <div class="review">
+                    <span>Reviews</span>
+                    <div class="rate">
+                      <i class="fa-solid fa-star stars"></i>
+                      <i class="fa-solid fa-star stars"></i>
+                      <i class="fa-solid fa-star stars"></i>
+                    </div>
+                  </div>
+                  <div class="cost">
+                    <h4 class="price">Rs. 100.32</h4>
+                  </div>
+                </div>
+                <button class="button buy-btn">Buy Now</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="column">
+                <img src="/assets/Medicines/Type/Treatment/Page 2/gaviscon_liquid_peppermint_flavor_150_ml_0_1.jpg" class="card-img">
+                <h3>Gaviscon Liquid - Peppermint Flavor 150 ml</h3>
+                                       <div class="row justify-space">
+                                                 <div class="review">
+                                                           <span>Reviews</span>
+                                                           <div class="rate">
+                                                           <i class="fa-solid fa-star stars"></i>
+                                                           <i class="fa-solid fa-star stars"></i>
+                                                           </div>
+                                                           
+                                                 </div>
+                                                 <div class="cost">
+                                                           <h4 class="price">Rs. 100.54</h4>
+                                                 </div>
+                                                 
+                                       </div>
+                                       <button class="button buy-btn">Buy Now</button>
+                             </div>
+                   </div>
+                   <div class="card">
+                    <div class="column">
+                              <img src="/assets/Medicines/Type/Treatment/Page 2/iodex_body_pain_expert_40_gm_0_1.jpg" class="card-img">
+                              <h3>Iodex Body Pain Expert 40 gm</h3>
+                              <div class="row justify-space">
+                                        <div class="review">
+                                                  <span>Reviews</span>
+                                                  <div class="rate">
+                                                  <i class="fa-solid fa-star stars"></i>
+                                                  <i class="fa-solid fa-star stars"></i>
+                                                  <i class="fa-solid fa-star stars"></i>
+                                                  <i class="fa-solid fa-star stars"></i>
+                                                  </div>
+                                                  
+                                        </div>
+                                        <div class="cost">
+                                                  <h4 class="price">Rs. 80.49</h4>
+                                        </div>
+                                        
+                              </div>
+                              <button class="button buy-btn">Buy Now</button>
+                    </div>
+          </div>
+          <div class="card">
+            <div class="column">
+                      <img src="/assets/Medicines/Type/Treatment/Page 2/jointflex_pain_relief_massage_oil_120_ml_0_2.jpg" class="card-img">
+                      <h3>JointFlex Pain Relief Massage Oil 120 ml</h3>
+                      <div class="row justify-space">
+                                <div class="review">
+                                          <span>Reviews</span>
+                                          <div class="rate">
+                                          <i class="fa-solid fa-star stars"></i>
+                                          <i class="fa-solid fa-star stars"></i>
+                                          <i class="fa-solid fa-star stars"></i>
+                                          </div>
+                                          
+                                </div>
+                                <div class="cost">
+                                          <h4 class="price">Rs. 200.53</h4>
+                                </div>
+                                
+                      </div>
+                      <button class="button buy-btn">Buy Now</button>
+            </div>
+  </div>
+  <div class="card">
+    <div class="column">
+              <img src="/assets/Medicines/Type/Treatment/Page 2/legard_diabetic_foot_care_cream_100_gm_0_0.jpg" class="card-img">
+              <h3>Legard Diabetic Foot Care Cream 100gm</h3>
+              <div class="row justify-space">
+                        <div class="review">
+                                  <span>Reviews</span>
+                                  <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  </div>
+                                  
+                        </div>
+                        <div class="cost">
+                                  <h4 class="price">Rs. 20.11</h4>
+                        </div>
+                        
+              </div>
+              <button class="button buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="card">
+  <div class="column">
+            <img src="/assets/Medicines/Type/Treatment/Page 2/piramal_tetmosol_plus_cream_10_gm_0_2.jpg" class="card-img">
+            <h3>Piramal Tetmosol Plus Cream 10 gm</h3>
+            <div class="row justify-space">
+                      <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star stars"></i>
+                                </div>
+                                
+                      </div>
+                      <div class="cost">
+                                <h4 class="price">Rs. 20.11</h4>
+                      </div>
+                      
+            </div>
+            <button class="button buy-btn">Buy Now</button>
+  </div>
+</div>
+<div class="card">
+  <div class="column">
+            <img src="/assets/Medicines/Type/Treatment/Page 2/cremaffin_syrup_for_constipation_relief_mixed_fruit_flavour_450_ml_0_4.jpg" class="card-img">
+            <h3>Cremaffin Constipation Relief Liquid - Mixed Fruit 450ml</h3>
+            <div class="row justify-space">
+                      <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star stars"></i>
+                                </div>
+                                
+                      </div>
+                      <div class="cost">
+                                <h4 class="price">Rs. 190.34</h4>
+                      </div>
+                      
+            </div>
+            <button class="button buy-btn">Buy Now</button>
+  </div>
+</div>
+         </div>
+                     </div>
+                     <div class="products">
+                      <div class="cards">
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Treatment/Page 3/disprin_regular_effervescent_tablet_10s_0_0.jpg" class="card-img">
+                            <h3>Disprin Regular Effervescent Tablet 10'S</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 10.64</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Treatment/Page 3/ring_guard_plus_cream_20_gm_0.jpg" class="card-img">
+                            <h3>Ring Guard Plus Cream 20 gm</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 20.65</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Treatment/Page 3/saridon_advance_headache_relief_tablet_10s_0_1.jpg" class="card-img">
+                            <h3>Saridon Advance Tablets for 5 in 1 Pain Relief 10's</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star-half stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 19.23</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Treatment/Page 3/vensore_topical_anti_infective_ointment_20_gm_0_0.jpg" class="card-img">
+                            <h3>Vensore Topical Anti-Infective Ointment 20 gm</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star-half stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 110.65</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>       
+                      </div>
+                                  </div>
+            
+                    </div>
+
+<div class="pagination" id="pagi">
+          <div class="row">
+                    <li class="pagi-list prev-b">Prev</li>
+                    <li class="pagi-list current-page">1</li>
+                    <li class="pagi-list current-page">2</li>
+                    <li class="pagi-list current-page">3</li>
+                    <li class="pagi-list next-b">Next</li>
+          </div>
+</div>
+</section>
+<div class="spacer">ewew</div>
+   <!--=============== FOOTER ===============-->
+   <footer class="footer section">
+    <div class="footer__container container grid">
+        <div class="footer__content">
+            <a href="#" class="footer__logo">Medcity</a>
+            <p class="footer__description">Get medcines faster. <br> Book appointment with doctor</p>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Attribution</h3>
+            <ul class="footer__links">
+                <li><a href='https://www.netmeds.com/non-prescriptions/treatments' class="footer__link">Product Images By Netmeds.com</a></li>
+                <a href="https://www.netmeds.com/non-prescriptions/treatments" class="footer__link">Product Information By Netmeds.com</a>
+                <a href="https://fontawesome.com" class="footer__link">Icons by Font Awesome</a>
+                <a href="https://boxicons.com" class="footer__link">Icons by Boxicons</a>
+            </ul>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Our Office</h3>
+            <ul class="footer__links">
+                <li><a href="#" class="footer__link">+0123456789</a></li>
+                <li><a href="#" class="footer__link">Mumbai</a></li>
+                <li><a href="#" class="footer__link">medcity.crew@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="footer__copy">&#169;Medcity. All right reserved</p>
+</footer>
+                    </body>
+                    </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+          <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Medcity | Orders</title>
+                    <link rel="icon" href="/assets/favicon.png">
+                    <!---------------------------------emailjs-------------------------->
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+                    <!--------------------------------------------firebase------------------------------------------>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+                    <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+                    <script src="/firebaseConfig.js"></script>
+                     <link rel="stylesheet" href="order.css">
+                     <script src="canceled.js" defer></script>
+         <script src="/reauthenticate.js"></script>
+<!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+<script src="https://kit.fontawesome.com/809920df63.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+
+</head>
+<body class="body">
+    <div class="loader2">
+        <img src="/assets/favicon.png">
+   </div>
+    <div class="loader">
+        <img src="/assets/loader.gif">
+        <h3 id="text-load">Loading....</h3>
+    </div>
+    <div class="error-div">
+        <div class="ico">
+          <i class="fa-solid fa-exclamation-circle"></i>
+        </div>
+        <div class="error">
+          
+          <h3>Error!</h3>
+          <div class="sub">
+            <p>eerorr</p>
+          </div>
+          
+        </div>
+        <div class="close-btn" onclick="close_error()">
+          <i class="fa-solid fa-times"></i>
+        </div>
+      </div>
+      <div class="wrapper-can">
+        <i class="fa-solid fa-check-circle"></i>
+        <h1>Order Cancelled Successfully!</h1>
+        <p>Your order was cancelled successfully. Refund may take upto 5 days so stay make sure to check your email</p>
+        <button class="btn-back" onclick="window.location = 'index.html';">
+          Continue <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </body>
+</html>
+

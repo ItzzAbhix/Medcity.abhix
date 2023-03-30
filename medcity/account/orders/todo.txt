@@ -1,0 +1,1 @@
+after finishing styling website reomve .loader display none and body overflow-x auto

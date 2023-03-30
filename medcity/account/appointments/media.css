@@ -1,0 +1,898 @@
+@media screen and (max-width: 767px) {
+    .nav__menu {
+      position: fixed;
+      background-color: var(--container-color);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem 0;
+      width: 90%;
+      top: -100%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transition: .4s;
+      border-radius: 2rem;
+      z-index: var(--z-fixed);
+    }
+    #nav-menus {
+      position: fixed;
+      background-color: var(--container-color);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem 0;
+      width: 90%;
+      top: 50px;
+      left: 0;
+      right: -1000%;
+      margin: 0 auto;
+      transition: .4s;
+      border-radius: 2rem;
+      z-index: var(--z-fixed);
+    }
+    #navs {
+      height:0;
+    }
+  }
+
+  
+  @media screen and (max-width: 360px) {
+    #navs{
+      height:0px;
+    }
+    .loader img {
+width: 100px;
+    }
+    .svg__img {
+      width: 100%;
+    }
+    
+    .services__img {
+      width: 100px;
+    }
+    .app__buttons {
+      grid-template-columns: max-content;
+    }
+    .footer__container {
+      display: block;
+    }
+    .footer__content {
+      margin-top: 40px;
+    }
+ 
+  }
+  @media screen and (max-width:400px){
+    .title {
+      width: 100%;
+      text-align: center;
+    }
+    main .container {
+      margin: 0;
+      max-width: 100%;
+    }
+    .big-wrapper {
+      padding: 5px;
+    }
+    .appointment {
+      padding: 20px 5px 20px 5px;
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .appointment h2 {
+      text-align: center;
+      max-width: 100%;
+    }
+    .appointment-details {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .appointment-details p {
+      max-width: 100%;
+      text-align: center;
+      font-size: 15px !important;
+    }
+    .appointment-icon {
+      margin: 0;
+    }
+    .appointment-actions {
+      margin-top: 40px;
+    }
+    .edit .edit-popup , .edit-popup2 {
+      width: 100%;
+     border-radius: 0;
+    }
+    .edit .edit-popup {
+      height: 65%;
+    }
+    .edit .edit-popup .flex {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .cancel .cancel-popup , .cancel-popup2 {
+      width: 100%;
+      border-radius: 0;
+    }
+    .cancel-popup2 p {
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .title {
+      width: 100%;
+      text-align: center;
+    }
+    main .container {
+      margin: 0;
+      max-width: 100%;
+    }
+    .big-wrapper {
+      padding: 5px !important;
+    }
+    .appointment {
+      padding: 20px 5px 20px 5px;
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .appointment h2 {
+      text-align: center;
+      max-width: 100%;
+    }
+    .appointment-details {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .appointment-details p {
+      max-width: 100%;
+      text-align: center;
+      font-size: 18px;
+    }
+    .appointment-icon {
+      margin: 0;
+    }
+    .appointment-actions {
+      margin-top: 40px;
+      margin-bottom: 40px;
+
+    }
+    .edit .edit-popup , .edit-popup2 {
+      width: 100%;
+     border-radius: 0;
+    }
+    .edit .edit-popup {
+      height: 65%;
+    }
+    .edit .edit-popup .flex {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .cancel .cancel-popup , .cancel-popup2 {
+      width: 100%;
+      border-radius: 0;
+    }
+    .cancel-popup2 p {
+      text-align: center;
+    }
+  }
+  /* For medium devices */
+  @media screen and (min-width: 576px) {
+    .svg__img {
+      width: 100%;
+    }
+    .section__title-center {
+      text-align: initial;
+    }
+    .home__container,
+    .about__container,
+    .security__container,
+    .services__container,
+    .app__container,
+    .contact__container,
+    .footer__container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .home__img {
+      order: 1;
+    }
+    .home__container,
+    .about__container,
+    .security__container,
+    .app__container,
+    .contact__container {
+      align-items: center;
+    }
+    .about__data,
+    .security__data,
+    .app__data,
+    .contact__description {
+      text-align: initial;
+    }
+    .about__img,
+    .app__img {
+      order: -1;
+    }
+  
+  }
+  @media screen and (max-width:700px){
+    .info {
+      font-size: 22px !important;
+     }
+     .title {
+      width: 100%;
+      text-align: center;
+    }
+    main .container {
+      margin: 0;
+      max-width: 100%;
+    }
+    .big-wrapper {
+      padding: 5px !important;
+    }
+    .appointment {
+      padding: 20px 5px 20px 5px;
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .appointment h2 {
+      text-align: center;
+      max-width: 100%;
+    }
+    .appointment-details {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .appointment-details p {
+      max-width: 100%;
+      text-align: center;
+      font-size: 18px;
+    }
+    .appointment-icon {
+      margin: 0;
+    }
+    .appointment-actions {
+      margin-top: 40px;
+      margin-bottom: 40px;
+
+    }
+    .edit .edit-popup , .edit-popup2 {
+      width: 100%;
+     border-radius: 0;
+    }
+    .edit .edit-popup {
+      height: 65%;
+    }
+    .edit .edit-popup .flex {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .cancel .cancel-popup , .cancel-popup2 {
+      width: 100%;
+      border-radius: 0;
+    }
+    .cancel-popup2 p {
+      text-align: center;
+    }
+
+  }
+
+  
+  @media screen and (min-width: 767px) {
+    body {
+      margin: 0;
+    }
+    .section {
+      padding: 6rem 0 2rem;
+    }
+    .nav {
+      height: calc(var(--header-height) + 1.5rem);
+    }
+    .nav__list {
+      flex-direction: row;
+      column-gap: 2.5rem;
+    }
+    .nav__toggle {
+      display: none;
+    }
+    .change-theme {
+      position: initial;
+    }
+    .app__buttons {
+      justify-content: initial;
+    }
+    .edit-popup ,.edit-popup2 {
+      width: 40% !important;
+      border-radius: 20px !important;
+    }
+    .edit .edit-popup .flex {
+      flex-direction: crow;
+      gap: 10px;
+    }
+    .cancel .cancel-popup,.cancel-popup2 {
+      width: 40% !important;
+      border-radius: 20px !important;
+    }
+    .edit .edit-popup .flex {
+      flex-direction: crow;
+      gap: 10px;
+    }
+  }
+  
+  /* For large devices */
+  @media screen and (max-width:968px){
+    .info {
+      font-size: 22px !important;
+     }
+     .title {
+      width: 100%;
+      text-align: center;
+    }
+    main .container {
+      margin: 0;
+      max-width: 100%;
+    }
+    .big-wrapper {
+      padding: 30px;
+    }
+    .appointment {
+      padding: 20px 5px 20px 5px;
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .appointment h2 {
+      text-align: center;
+      max-width: 100%;
+    }
+    .appointment-details {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .appointment-details p {
+      max-width: 100%;
+      text-align: center;
+      font-size: 18px;
+    }
+    .appointment-icon {
+      margin: 0;
+    }
+    .appointment-actions {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .edit .edit-popup , .edit-popup2 {
+      width: 100%;
+     border-radius: 0;
+    }
+    .edit .edit-popup {
+      height: 65%;
+    }
+    .edit .edit-popup .flex {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .cancel .cancel-popup , .cancel-popup2 {
+      width: 100%;
+      border-radius: 0;
+    }
+    .cancel-popup2 p {
+      text-align: center;
+    }
+  }
+  @media screen and (min-width: 968px) {
+    .button__header {
+      display: block;
+    }
+    .svg__img {
+      width: 470px;
+    }
+    .about__container,
+    .security__container,
+    .app__container,
+    .contact__container {
+      column-gap: 6rem;
+    }
+    .services__container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .contact__container {
+      grid-template-columns: 3fr 1.5fr 1.25fr;
+    }
+    .footer__container {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .footer__social {
+      align-items: flex-start;
+    }
+    .footer__social-link {
+      font-size: 1.45rem;
+    }
+    .info {
+      font-size: 22px !important;
+     }
+     .title {
+      width: 100%;
+      text-align: center;
+    }
+    main .container {
+      margin: 0;
+      max-width: 100%;
+    }
+    .big-wrapper {
+      padding: 30px;
+    }
+    .appointment {
+      padding: 20px 5px 20px 5px;
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .appointment h2 {
+      text-align: center;
+      max-width: 100%;
+    }
+    .appointment-details {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 700px;
+    }
+    .appointment-details p {
+      max-width: 100%;
+      text-align: center;
+      font-size: 18px;
+    }
+    .appointment-icon {
+      margin: 0;
+    }
+    .appointment-actions {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .edit .edit-popup , .edit-popup2 {
+      width: 100%;
+     border-radius: 0;
+    }
+    .edit .edit-popup {
+      height: 65%;
+    }
+    .edit .edit-popup .flex {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .cancel .cancel-popup , .cancel-popup2 {
+      width: 100%;
+      border-radius: 0;
+    }
+    .cancel-popup2 p {
+      text-align: center;
+    }
+    
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .home__img {
+      width: 540px;
+    }
+    .home__description {
+      padding-right: 5rem;
+    }
+    .footer__container {
+      column-gap: 3rem;
+    }
+    .scrollup {
+      right: 2rem;
+    }
+    .appointments { 
+      margin-top: 40px;
+    }
+    .appointment {
+      max-width: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ddd;
+      padding: 30px;
+      margin-bottom: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+      gap: 50px;
+    }
+    
+    .appointment:hover {
+      transform: translateY(-10px);
+    }
+    
+    .appointment-icon {
+      margin-right: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #f5f4f4;
+      border: 2px solid #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .appointment-icon i {
+      font-size: 32px;
+      color: #555;
+    }
+    .appointment-details {
+      max-width: 100%;
+    }
+    
+    .appointment-details h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+      max-width: 100%;
+      width: 100%;
+      overflow: hidden;
+      white-space: normal;
+      overflow-wrap: break-word;
+    
+    }
+    
+    
+    .appointment-details p {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #666;
+      width: 100%;
+      overflow: hidden;
+      white-space: normal;
+      overflow-wrap: break-word;
+      justify-content: left;
+    }
+    .appointment-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .appointment h2 {
+      text-align: left;
+    }
+    .appointment p {
+      text-align: left;
+    }
+    .appointment h3 {
+      text-align: left;
+    }
+    .appointment-actions button {
+      border: none;
+      background-color: #333;
+      padding: 10px;
+      font-size: 22px;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+      width: 200px;
+      height: 50px;
+    }
+    
+    .edit-btn {
+      background-color: transparent !important;
+      color: #333 !important;
+      font-size: 22px;
+    }
+    .delete-btn {
+      background-color: #dc3545 !important;
+    }
+    .edit-btn:hover  {
+     background-color: rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .delete-btn:hover {
+      background-color: #b62432 !important;
+    }
+    .address {
+      width: 560px;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+    .edit {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      display:none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 99999;
+    }
+    .edit-popup {
+      background-color: #fff;
+      border-radius: 20px;
+      width: 50%;
+      height: 50%;
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    } 
+    .flex {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px;
+      margin-top: 40px;
+    }
+    .edit-time {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .edit-date input {
+      width: 100%;
+      background-color: #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      border: 0px solid;
+      font-size: 17px;
+      margin-top: 10px;
+      font-weight: 600;
+      height: 50px;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    width: 100%;
+    }
+    .edit-time select {
+      width:100%;
+      padding: 10px;
+      background-color: #ccc;
+      border-radius: 10px;
+      border: 0px solid;
+      height: 50px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .re-btn {
+      padding: 10px;
+      height: 50px;
+      width: 200px;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 5px;
+      background-color: rgb(47, 116, 243);
+      color: #fff;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: .3s all ease;
+      border: 0px solid;
+      outline: none;
+    }
+    .re-btn:hover {
+      background-color: rgb(36, 98, 214);
+    }
+    .edit-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    .edit .title {
+      display: flex;
+      justify-content:center ;
+      align-items: center;
+      width: 100%;
+    }
+    .edit .edit-header i {
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .edit-popup2 {
+      padding: 1rem;
+      border-radius: 20px;
+      width: 50%;
+      height: 55%;
+      background-color: #fff;
+      text-align: center;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .edit-popup2 #edit-date-popup2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    .edit-popup2 #edit-time-popup2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .btn-re {
+      background-color: rgb(47, 116, 243);
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      height: 50px;
+      width: 250px;
+      border: 0px solid;
+      outline: none;
+      font-size: 18px;
+      font-weight:600;
+      transition: .3s all ease;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn-re:hover {
+      background-color: rgb(36, 98, 214);
+    }
+    .btn-re-ca {
+      color: #333;
+      border-radius: 5px;
+      background-color: transparent;
+      padding: 10px;
+      height: 50px;
+      width: 250px;
+      border: 0px solid;
+      outline: none;
+      font-size: 18px;
+      font-weight:600;
+      transition: .3s all ease;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn-re-ca:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .cancel {
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+    }
+    .cancel-popup {
+      border-radius: 20px;
+      background-color: #fff;
+      color: #333;
+      width: 50%;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+    }
+    .cancel-popup .title {
+      width: 100%;
+      text-align: center;
+    }
+    .cancel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .cancel-popup p {
+      font-weight: 600;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    .cancel-popup button {
+      background-color: #dc3545;
+      color: #fff;
+      width: 250px;
+      height: 50px;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      border: 0px solid;
+      outline: none;
+      cursor: pointer;
+      transition: .3s all ease;
+      margin-top: 40px;
+    }
+    .cancel-popup button:hover {
+      background-color: #b62432;
+    }
+    .cancel-popup2 {
+      border-radius: 20px;
+      background-color: #fff;
+      padding:2rem;
+      width: 50%;
+      height: 50%;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+     .cancel-popup2 .cancel-header {
+      font-size: 100px;
+      color: rgb(93, 238, 93);
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .cancel-popup2 p {
+      font-size: 19px;
+    }
+    .btn-ca-con {
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      width: 250px;
+      height: 50px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .3s all ease;
+      border: 0px solid;
+      outline: none;
+      margin-top: 10px;
+    }
+    .btn-ca-con:hover {
+      background-color: #000;
+    }
+    .info {
+    text-align: center;
+    width: 100%;
+    margin-top: 80px;
+    }
+  }

@@ -1,0 +1,18 @@
+@media screen and (max-width:400px){
+    .forms {
+        width: 100%;
+    }
+    .over {
+        height: 650px;
+    }
+    .big-wrapper {
+        padding-left:0px;
+        padding-right: 0px;
+    }
+    .sign-re {
+        right: 0px;
+    }
+    .login-re {
+        right: 0px;
+    }
+}

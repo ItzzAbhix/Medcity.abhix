@@ -1,0 +1,109 @@
+/*=============== BASE ===============*/
+*, ::before, ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: var(--header-height) 0 0 0;
+    font-family: 'Poppins',sans-serif;
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: .5s;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3 {
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+    line-height: 1.5;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .goodybye-human {
+          padding: 1rem;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+  }  
+  .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .top-top {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .top-top img {
+    width: 25%;
+  }
+  .bottom-top {
+    font-size: 40px;
+    font-family:;
+  }
+  .bottoms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .top-bottoms {
+    font-size: 18px;
+    font-size: 600;
+    letter-spacing: 1px;
+
+  }
+  .bottom-bottoms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .join {
+    background-color:#fff;
+    color: #333;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 15%;
+    outline: none;
+    cursor: pointer;
+    transition: .3s all ease;
+  }
+  .join:hover {
+    background-color: #333;
+    color: #fff;
+  }

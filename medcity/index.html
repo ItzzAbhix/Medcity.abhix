@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+          <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Medcity</title>
+                    <link rel="icon" href="/assets/favicon.png">
+                    <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+                    <script src="/firebaseConfig.js" defer></script>
+                    <link rel="stylesheet" href="style.css">
+                    <link rel="stylesheet" href="media.css">
+         <script src="main.js" defer></script>
+         <script src="/logout.js" defer></script>
+         <script src="/reauthenticate.js" defer></script>
+         <!--------------------------------------------swipper------------------------------------------->
+         <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+       />
+       
+       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+<script src="https://kit.fontawesome.com/809920df63.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<!--------------------------------------------------end------------------------------------------------------------------------------------------>
+          </head>
+          <body class="body">
+            <div class="loader">
+                <img src="/assets/loader.gif">
+                <h3 id="text-load">Loading....</h3>
+            </div>
+          <!--=============== HEADER ===============-->
+          <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">Medcity</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="index.html" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="Donate/index.html" class="nav__link ">Donate</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="Book/index.html" class="nav__link">Book appointment</a>
+                        </li>  
+                        <li class="nav__item account-li">
+                            <a class="nav__link">Account</a>
+                            <ul class="account-dropdown">
+                                <li class="nav__item" onclick="window.location = 'Account/Settings/index.html'">
+                                    <box-icon name='cog' type='solid' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Settings</a>
+                                </li>
+                                <li class="nav__item" onclick="window.location = 'Account/Orders/index.html'">
+                                    <box-icon name='truck' type='solid' class="drop-box" color="#333"></box-icon>  <a  class="nav__link">  Orders</a>
+                                </li>
+                                <li class="nav__item"  onclick="window.location = 'Account/Donations/index.html'">
+                                    <box-icon type='solid' name='donate-heart' class="drop-box" color="#333"></box-icon>  <a class="nav__link">  Donations</a>
+                                </li>
+                                <li class="nav__item"  onclick="window.location = 'Account/Appointments/index.html'">
+                                    <box-icon type='solid' name='calendar-edit' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Appointments</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="Contact/index.html" class="nav__link">Contact us</a>
+                        </li>
+                        <a href="sign/index.html" class="button button__header b">Logout</a>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                  <box-icon name='grid-alt' type='solid' ></box-icon>
+                </div>
+                <div class="nav__toggle" id="navs-toggle">
+                    <box-icon name='menu-alt-left' type='solid' ></box-icon>
+                  </div>
+
+            
+            </nav>
+            <nav class="nav container" id="navs">
+                <div class="nav__menu" id="nav-menus">
+                    <ul class="nav__list row">
+                        <li class="nav__item"><a href="Type/Covid/index.html" class="nav__link">Covid Essentials</a> </li>
+                        <li class="nav__item"><a href="Type/Diabetes/index.html" class="nav__link">Diabetes</a> </li>
+                        <li class="nav__item"><a href="Type/Treatment/index.html" class="nav__link">Treatment</a> </li>
+                        <li class="nav__item"><a href="Type/Ayush/index.html" class="nav__link">Ayush</a> </li>
+                        <li class="nav__item"><a href="Type/Devices/index.html" class="nav__link">Devices</a> </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+
+            <div class="new_user_modal">
+                <div class="popup">
+                    <div class="img-box">
+                        <img src="/assets/newuser.png">
+                    </div>
+                    <div class="popup-title">
+                        <h2>Welcome To Medcity!</h2>
+                    </div>
+                    <div class="popup-body">
+            <div class="body-p">
+                <p>Before you continue, make sure you complete your account setup by going to account page</p>
+            </div>
+            <div class="body-btn">
+                <button class="skip-btn" onclick="skip()">
+                    Skip
+                </button>
+                <button class="conti-btn button" onclick="conti()">
+                    Continue 
+                </button> 
+            </div>
+                    </div>
+                </div>
+            </div>
+
+<section id="home" class=" section" style="margin:0;">
+<div class="home__container" style="margin:0;">
+    <div class="limited">
+    <div class="home-head row">
+        <h2>Limited Time Deals</h2>
+    </div>
+    <div class="containers limited-container swiper " id="limited-swiper">
+        <div class="content swiper-wrapper">
+            <div class="card  limited-item swiper-slide">
+                <div class="card-content">
+                    <img src="/assets/Medicines/Home/dr_morpen_pain_x_spray_50_gm_0_0.jpg">
+                    <h3> Dr.Morepen Pain-X Spray 50 gm </h3>
+                    <div class="row">
+                        <h4>₹ 123.25</h4>
+                        <h6 class="cut sm-left">₹ 145.00</h6>
+                    </div>
+                    <button class="buy-btn default top">Buy Now</button>
+                </div>
+            </div>
+            <div class="card limited-item swiper-slide">
+                <div class="card-content">
+                    <img src="/assets/Medicines/Home/volini_gel_10gm_0_1.jpg">
+                    <h3>Volini Gel 30gm</h3>
+                    <div class="row">
+                        <h4>₹ 110.50</h4>
+                        <h6 class="cut sm-left">₹ 60.00</h6>
+                    </div>
+                    <button class="buy-btn default top">Buy Now</button>
+                </div>
+            </div>
+            <div class="card limited-item swiper-slide">
+                <div class="card-content">
+                    <img src="/assets/Medicines/Home/iodex_body_pain_expert_40_gm_0_1.jpg">
+                    <h3>Iodex Body Pain Expert 40 gm</h3>
+                    <div class="row">
+                        <h4>₹ 150.00</h4>
+                        <h6 class="cut sm-left">₹ 100.00</h6>
+                    </div>
+                    <button class="buy-btn default top">Buy Now</button>
+                </div>
+            </div>
+            <div class="card limited-item swiper-slide">
+                <div class="card-content">
+                    <img src="/assets/Medicines/Home/maxirich_multivitamin_and_minerals_softgels_10s_0_0.jpg">
+                    <h3>Maxirich Multivitamin and Minerals Softgels 10's</h3>
+                    <div class="row">
+                        <h4>₹ 60.50</h4>
+                        <h6 class="cut sm-left">₹ 110.00</h6>
+                    </div>
+                    <button class="buy-btn default top">Buy Now</button>
+                </div>
+            </div>
+            <div class="card limited-item swiper-slide">
+                <div class="card-content">
+                    <img src="/assets/Medicines/Home/medicare_mpore_adhesive_tape_1_inch_x_9_1_mtr_pack_of_12_0_0.jpg">
+                    <h3>  Medicare M'Pore Adhesive Tape (1 inch x 9.1 mtr) 12's </h3>
+                    <div class="row">
+                        <h4>₹ 375.00</h4>
+                        <h6 class="cut sm-left">₹ 750.00</h6>
+                    </div>
+                    <button class="buy-btn default top">Buy Now</button>
+                </div>
+            </div>
+            <div class="card  limited-item swiper-slide">
+                <div class="card-content">
+                div
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+    </div>
+    <div class="category">
+        <div class="cate-head">
+            <h2>Shop by Category</h2>
+        </div>
+        <div class="content column">
+            <div class="row">
+                <div class="card">
+                    <img  src="/assets/Medicines/Home/homeopathy_1.jpg">
+                    <h4>Homeopathy</h4>
+                </div>
+                <div class="card">
+                    <img  src="/assets/Medicines/Home/ayurvedic_1.jpg">
+                    <h4>Ayurvedic</h4>
+                </div>
+                <div class="card">
+                    <img  src="/assets/Medicines/Home/status_n95_face_mask_white_pack_of_20_0_1.jpg">
+                    <h4>Covid Essentials</h4>
+                </div>
+                <div class="card">
+                    <img  src="/assets/Medicines/Home/ensure_diabetes_care_powder_vanilla_flavour_1_kg_refill_pack_0_0.jpg">
+                    <h4>Diabetes</h4>
+                </div>
+                <div class="card">
+                    <img  src="/assets/Medicines/Home/canesten_antifungal_dusting_powder_50g_0_1.jpg">
+                    <h4>Treatment</h4>
+                </div>
+                <div class="card">
+                    <img  src="/assets/Medicines/Home/dabur_honitus_herbal_cough_remedy_syrup_100_ml_0.jpg">
+                    <h4>Ayush</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <div class="advice">
+        <div class="row r">
+            <img src="/assets/Medicines/Home/online_consultation.svg">
+            <div class="column">
+                <h3>
+                    Easy Online Doctor Consultations
+                </h3>
+                <p>
+                    Skip the queue! Speak with a doctor right now
+                    <br>
+More than 25+ specialities to choose from, starting at just ₹100
+                </p>
+            </div>
+            <button class="learn-btn default">Book Now!</button>
+        </div>
+    </div>
+</div>
+</section>
+        </main>
+
+
+        <!--=============== FOOTER ===============-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">Medcity</a>
+                    <p class="footer__description">Get medcines faster. <br> Book appointment with doctor</p>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Attribution</h3>
+                    <ul class="footer__links">
+                        <li><a href="https://netmeds.com" class="footer__link">Medicines images by netmeds</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Our Office</h3>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">+0123456789</a></li>
+                        <li><a href="#" class="footer__link">Mumbai</a></li>
+                        <li><a href="#" class="footer__link">medcity@crew.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169;Medcity. All right reserved</p>
+        </footer>
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+          <box-icon type='solid' name='rocket' class="roc"></box-icon>
+        </a>
+          </body>
+</html>

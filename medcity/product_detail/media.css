@@ -1,0 +1,226 @@
+
+@media screen and (max-width: 360px) {
+    #navs {
+              height: 0px;
+    }
+
+    .loader img {
+              width: 50%;
+    }
+
+    .svg__img {
+              width: 100%;
+    }
+
+    .services__img {
+              width: 100px;
+    }
+
+    .app__buttons {
+              grid-template-columns: max-content;
+    }
+
+    .footer__container {
+              display: block;
+    }
+
+    .footer__content {
+              margin-top: 40px;
+    }
+
+}
+@media screen and (max-width:400px){
+    .big-wrapper {
+        flex-direction: column;
+        padding:5px !important;
+    }
+    main .container {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 50px;
+    }
+    .left-div {
+        max-width: 100% !important;
+    }
+    .right-div h1 {
+        width:100%;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    .back-btn {
+        width: 30px;
+        height: 30px;
+    }
+    .nav h3 {
+     font-size: 16px;
+    } 
+    .product-title {
+        font-size: 20px !important;
+    }
+    .description-div {
+        width: 100% !important;
+    }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+    .svg__img {
+              width: 100%;
+    }
+
+    .section__title-center {
+              text-align: initial;
+    }
+    
+    .home__container,
+    .about__container,
+    .security__container,
+    .services__container,
+    .app__container,
+    .contact__container,
+    .footer__container {
+              grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .home__img {
+        order: 1;
+    }
+    
+    .home__container,
+    .about__container,
+    .security__container,
+    .app__container,
+    .contact__container {
+        align-items: center;
+    }
+    
+    .about__data,
+    .security__data,
+    .app__data,
+    .contact__description {
+              text-align: initial;
+            }
+            
+            .about__img,
+            .app__img {
+                order: -1;
+            }
+            
+        }
+        
+        @media screen and (max-width:700px){
+            .big-wrapper {
+                flex-direction: column;
+                padding:20px;
+            }
+            main .container {
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 50px;
+            }
+            .left-div {
+                max-width: 48%;
+            }
+            .right-div h1 {
+                width:100%;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            .back-btn {
+                width: 30px;
+                height: 30px;
+            }
+            .nav h3 {
+             font-size: 16px;
+            } 
+            .product-title {
+                font-size: 22px;
+            }
+            .but-btn {
+                width: 45%;
+            }
+            .description-div {
+                width: 70%;
+            }
+        }
+        
+        @media screen and (min-width: 767px) {
+            body {
+                margin: 0;
+            }
+            
+            .section {
+                padding: 6rem 0 2rem;
+    }
+
+   
+
+    .change-theme {
+              position: initial;
+    }
+
+    .app__buttons {
+              justify-content: initial;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 968px) {
+    .button__header {
+              display: block;
+    }
+
+    .svg__img {
+              width: 470px;
+    }
+
+    .about__container,
+    .security__container,
+    .app__container,
+    .contact__container {
+              column-gap: 6rem;
+    }
+
+    .services__container {
+              grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact__container {
+              grid-template-columns: 3fr 1.5fr 1.25fr;
+    }
+
+    .footer__container {
+              grid-template-columns: repeat(5, 1fr);
+    }
+
+    .footer__social {
+              align-items: flex-start;
+    }
+
+    .footer__social-link {
+              font-size: 1.45rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+              margin-left: auto;
+              margin-right: auto;
+    }
+
+    .home__img {
+              width: 540px;
+    }
+
+    .home__description {
+              padding-right: 5rem;
+    }
+
+    .footer__container {
+              column-gap: 3rem;
+    }
+
+    .scrollup {
+              right: 2rem;
+    }
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+          <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Medcity | Account Settings</title>
+                    <link rel="icon" href="/assets/favicon.png">
+                    <!---------------------------------emailjs-------------------------->
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+                    <!--------------------------------------------firebase------------------------------------------>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+                    <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+                    <script src="/firebaseConfig.js"></script>
+                    <script src="acc.js" defer></script>
+                    <script src="del.js" defer></script>
+                    <script src="pas.js" defer></script>
+                    <script src="tab.js" defer></script>
+                    <link rel="stylesheet" href="style.css">
+                    <link rel="stylesheet" href="media.css"> 
+         <script src="main.js" defer></script>
+         <script src="/logout.js" defer></script>
+         <script src="/reauthenticate.js"></script>
+<!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+<script src="https://kit.fontawesome.com/809920df63.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+<!--------------------------------------------------end------------------------------------------------------------------------------------------>
+          </head>
+          <body class="body">
+            <div class="loader2">
+                <img src="/assets/favicon.png">
+           </div>
+            <div class="loader">
+                <img src="/assets/loader.gif">
+                <h3 id="text-load">Loading....</h3>
+            </div>
+            <div class="error-div">
+                <div class="ico">
+                  <i class="fa-solid fa-exclamation-circle"></i>
+                </div>
+                <div class="error">
+                  
+                  <h3>Error!</h3>
+                  <div class="sub">
+                    <p>eerorr</p>
+                  </div>
+                  
+                </div>
+                <div class="close-btn" onclick="close_error()">
+                  <i class="fa-solid fa-times"></i>
+                </div>
+              </div>
+            <div class="modal2">
+                <div class="relativer">
+                <div class="popup2">
+                    <div class="popup2-header">
+                        <h2><i class="fa-solid fa-exclamation-circle"></i> Are Your Sure?</h2>
+                        <button class="can-popup2" onclick="document.querySelector('.modal2').style.display = 'none';document.querySelector('.body').style.overflow = 'auto';reset();">Cancel</button>
+                    </div>
+                    <hr>
+                    <div class="popup2-body">
+                        <p>Are You Sure You Want To Delete Your Account Parmanetly?</p>
+                        <p>This Action Cannot Be Reversed</p>
+                    </div>
+                    <div class="popup2-footer">
+                        <div class="popup2-ptag">
+                            <p>To Do This, Type </p><p id="email-popup2">your email</p>
+                        </div>
+                        <div class="popup2-flexed">
+                            <input type="email" class="e-i-popup2">
+                            <button class="del-foot-btn" type="button" onclick="del_par()">Delete Permanently</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup3">
+                    <div class="popup3-header">
+                        <p>Because deleting account is a security sensitive-action, please enter your password</p>
+                    </div>
+                <div class="popup3-body">
+                    <input type="password" placeholder="Enter Your Password" class="p3-pi">
+                    <button class="confi-btn-popup3" type="button" onclick="del_con_par()">Confirm Deletion</button>
+                </div>
+                <button class="can-popup2" onclick="document.querySelector('.modal2').style.display = 'none';document.querySelector('.body').style.overflow = 'auto';reset();" style="margin-top: 20px;">Cancel</button>
+                </div>
+                </div>
+            </div>
+          <!--=============== HEADER ===============-->
+          <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">Medcity</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="../index.html" class="nav__link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../Donate/index.html" class="nav__link ">Donate</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../Book/index.html" class="nav__link">Book appointment</a>
+                        </li>  
+                        <li class="nav__item account-li">
+                            <a class="nav__link active-link">Account</a>
+                            <ul class="account-dropdown">
+                                <li class="nav__item">
+                                    <box-icon name='cog' type='solid' class="drop-box" color="#333"></box-icon> <a href="index.html"  class="nav__link">  Settings</a>
+                                </li>
+                                <li class="nav__item">
+                                    <box-icon name='truck' type='solid' class="drop-box" color="#333"></box-icon>  <a href="../Orders/index.html"  class="nav__link">  Orders</a>
+                                </li>
+                                <li class="nav__item">
+                                    <box-icon type='solid' name='donate-heart' class="drop-box" color="#333"></box-icon>  <a href="../Donations/index.html"  class="nav__link">  Donations</a>
+                                </li>
+                                <li class="nav__item">
+                                    <box-icon type='solid' name='calendar-edit' class="drop-box" color="#333"></box-icon> <a href="../Appointments/index.html"  class="nav__link">  Appointments</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../Contact/index.html" class="nav__link">Contact us</a>
+                        </li>
+                        <a href="sign/index.html" class="button button__header b">Logout</a>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                  <box-icon name='grid-alt' type='solid' ></box-icon>
+                </div>
+            
+
+            
+            </nav>
+        </header>
+
+        <main>
+            <div class="loader2">
+                <img src="/assets/favicon.png">
+            </div>
+<section class="section container account">
+
+    <div class="account-header">
+        <h2>Account Settings</h2>
+        <p>Change Your Profile And Password Here. Also You Can Delete Your Account Through Here</p>
+    </div>
+    <div class="big-wrapper account-tab">
+        <div class="wrapper tab-w">
+            <div class="tabs">
+                <ul>
+                    <li class="tab-li1 active-tab"><i class="fa-solid fa-user"></i> <a class="tab-a">Account</a> </li>
+                    <li class="tab-li2"><i class="fa-solid fa-lock"></i> <a class="tab-a">Password</a> </li>
+                    <li class="tab-li3"><i class="fa-solid fa-trash"></i> <a class="tab-a">Delete</a> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper display-w">
+            <div class="acc">
+                <div class="profile-div">
+                <div class="wrapper-title">
+                    <h3>Profile</h3>
+                </div>
+                <div class="display_info">
+                    <div class="inputBox">
+                        <h5>Username</h5>
+                        <input type="text" class="g-u-i">
+                    </div>  
+                       <div class="inputBox">
+                        <h5>Email</h5>
+                        <input type="text" class="g-e-i" >
+                    </div>
+                     <div class="inputBox phone_box">
+                        <h5>Phone Number</h5>
+                        <div class="in-n-box">
+                         <input type="tel" class="g-pi-i" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                         <input type="tel" class="g-p-i" maxlength="15" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        </div>
+                        
+                    </div>
+                </div>
+</div>
+<div class="address-div">
+    <div class="wrapper-title">
+        <h3>Address</h3>
+    </div>
+    <div class="display_info">
+        <div class="inputBox">
+            <h5>House No.,Building Name</h5>
+            <input type="text" class="g-bn-i">
+        </div>
+        <div class="inputBox">
+            <h5>Road Name,Area,Colony</h5>
+            <input type="text" class="g-rn-i">
+        </div>
+        <div class="inputBox">
+            <h5>Pin Code</h5>
+            <input type="number" placeholder="XXXXXX"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="6" class="g-pn-i"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
+        </div>
+        <div class="inputBox">
+            <h5>City</h5>
+            <input type="text" class="g-c-i"> 
+        </div>
+        <div class="inputBox">
+            <h5>State</h5>
+            <input type="text" class="g-s-i">
+        </div>
+</div>
+
+            </div>
+<div class="acc_btns">
+    <button class="save-btn button" onclick="save()">Save Changes</button>
+</div>
+        </div>
+        <div class="pas">
+            <div class="wrapper-title">
+                <h3>Password</h3>
+                <p>Enter Your Current Password To Change Your Password</p>
+             
+            </div>
+            <hr>
+            <div class="box">
+                <h4>Current Password</h4>
+                <div class="inputBox c-p inpted">
+                    <input type="password" autocomplete="new-password">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </div>
+            </div>
+            <hr>
+              <div class="box">
+                <h4>New Password</h4>
+                <div class="inputBox n-p inpted">
+                    <input type="password">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </div>
+            </div>
+            <hr>  
+               <div class="box">
+                <h4>Confirm Password</h4>
+                <div class="inputBox co-p inpted">
+                    <input type="password">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </div>
+            </div>
+            <hr>
+            <button class="ch-btn button" onclick="change_password()">
+                Change Password
+            </button>
+
+        </div>
+        <div class="del">
+            <div class="wrapper-title">
+               <h3>Delete Your Account</h3>
+            </div>
+            <div class="del-body">
+                <p>Deleting Your Account Will Result In Losing Of All Your Data Including :-</p>
+                <ol type="1">
+                    <li>Your Product Orders</li>
+                    <li>Your Donations</li>
+                    <li>Your Bookings</li>
+                    <li>Your Address</li>
+                </ol>
+                <button class="del-btn" onclick="del()">Delete Account <i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+        </main>
+
+
+        <!--=============== FOOTER ===============-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">Medcity</a>
+                    <p class="footer__description">Get medcines faster. <br> Book appointment with doctor</p>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Attribution</h3>
+                    <ul class="footer__links">
+                        <li><a href="https://netmeds.com" class="footer__link"></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Our Office</h3>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">+0123456789</a></li>
+                        <li><a href="#" class="footer__link">Mumbai</a></li>
+                        <li><a href="#" class="footer__link">medcity@crew.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169;Medcity. All right reserved</p>
+        </footer>
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+          <box-icon type='solid' name='rocket' class="roc"></box-icon>
+        </a>
+          </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+          <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Thank Your For Donating</title>
+                    <link rel="icon" href="/assets/favicon.png">
+                    <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+                     <link rel="stylesheet" href="donated.css">
+                     <link rel="stylesheet" href="media.css">
+                     <script src="/firebaseConfig.js" defer></script>
+                   <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+                   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+                   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap&family=Allura&display=swap&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+<script src="https://kit.fontawesome.com/809920df63.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+</head>
+
+
+
+<body>
+
+    <main>
+        <section class="don section">
+            <div class="title">
+                <h1>Thank You</h1>
+                <h1>For Donating <i class="fa-solid fa-heart"></i> </h1>
+            </div>
+            <div class="sub-text">
+            </div>
+            <button class="back-btn" type="button" onclick="history.back()">Click here to go back</button>
+        </section>
+    </main>
+
+    <script>
+        const query = window.location.search;
+    const urlParams = new URLSearchParams(query);
+    
+    const param1 = urlParams.get('firebaeshyreipternlrbIOHEgiyerholerrererhouiryhouIUHUAUOhouurerbkuroeroName');
+    const param2 = urlParams.get('firebajrererjrieUGUydoheuoreror-rioehpirhrheoreru9oouUIAHOI9golaPUJPOJpijpOIhoHOugiAmount');
+    
+    document.querySelector('.sub-text').innerHTML = "<p>Thank you  "+param1+" for donating  "+param2+"  to medcity</p>";
+    
+    </script>
+</body>
+</html>

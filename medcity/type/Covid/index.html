@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Medcity | Shop</title>
+          <link rel="icon" href="/assets/favicon.png">
+          <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+          <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="media.css">
+          <script src="main.js" defer></script>
+          <script src="pagination.js" defer></script>
+          <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+          <script src="/product.js" defer></script>
+          <script src="/logout.js" defer></script>
+          <script src="/firebaseConfig.js" defer></script>
+          <script src="/reauthenticate.js" defer></script>
+            <!-----------------------------------custom tag--------------------------------->
+        
+            <script src="https://cdn.jsdelivr.net/gh/abhicodelink/custom-title-tag@master/custom-tag.bundle.js"
+            defer></script>
+  <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/abhicodelink/custom-title-tag@master/custom-tag.bundle.css">
+<!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+          <!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+          <!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+          <script src="https://kit.fontawesome.com/809920df63.js"></script>
+          <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+          <!--------------------------------------------------end------------------------------------------------------------------------------------------>
+</head>
+
+<body class="body">
+          <div class="loader">
+                    <img src="/assets/loader.gif" alt="loader">
+                    <h3 id="text-load">Loading....</h3>
+          </div>
+          <!--=============== HEADER ===============-->
+          <header class="header" id="header">
+                    <nav class="nav container">
+                              <a href="index.html" class="nav__logo">Medcity</a>
+
+                              <div class="nav__menu" id="nav-menu">
+                                        <ul class="nav__list">
+                                                  <li class="nav__item">
+                                                            <a href="../../index.html" class="nav__link active-link ">Home</a>
+                                                  </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Donate/index.html"
+                                                                      class="nav__link ">Donate</a>
+                                                  </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Book/index.html" class="nav__link">Book
+                                                                      appointment</a>
+                                                  </li>
+                                                  <li class="nav__item account-li">
+                                                        <a class="nav__link">Account</a>
+                                                        <ul class="account-dropdown">
+                                                            <li class="nav__item" onclick="window.location = '../../Account/Settings/index.html'">
+                                                                <box-icon name='cog' type='solid' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Settings</a>
+                                                            </li>
+                                                            <li class="nav__item" onclick="window.location = '../../Account/Orders/index.html'">
+                                                                <box-icon name='truck' type='solid' class="drop-box" color="#333"></box-icon>  <a  class="nav__link">  Orders</a>
+                                                            </li>
+                                                            <li class="nav__item"  onclick="window.location = '../../Account/Donations/index.html'">
+                                                                <box-icon type='solid' name='donate-heart' class="drop-box" color="#333"></box-icon>  <a class="nav__link">  Donations</a>
+                                                            </li>
+                                                            <li class="nav__item"  onclick="window.location = '../../Account/Appointments/index.html'">
+                                                                <box-icon type='solid' name='calendar-edit' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Appointments</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Contact/index.html" class="nav__link">Contact
+                                                                      us</a>
+                                                  </li>
+                                                  <a href="sign/index.html" class="button button__header b">Logout</a>
+                                        </ul>
+                              </div>
+
+                              <div class="nav__toggle" id="nav-toggle">
+                                        <box-icon name='grid-alt' type='solid'></box-icon>
+                              </div>
+                    </nav>
+          </header>
+          <div class="section container shop">
+                    <div class="banner">
+                              <div class="column">
+                                        <div class="row justify-space">
+                                                  <div class="path row center">
+                                                         <a style="color:white" href="../../index.html">Home</a>/<h5>Covid Essentials</h5>
+                                                  </div>
+
+                                                  <h1 class="banner-title">Shop</h1>
+
+                                                  <div class="results row center">
+                                                            <h5>Showing </h5><h5 class="pagi-re">  1-12  </h5><h5>Of 30 Results</h5>
+                                                  </div>
+                                               
+                                        </div>
+                              </div>
+                    </div>
+
+                    <div class="big-products">
+                    <div class="products">
+
+                     <div class="cards">
+
+                            <div class="card">
+                              <div class="column">
+                                   <img src="/assets/Medicines/Type/Covid/Page 1/shake_handz_e_alcohol_hand_rub_with_flip_cap_500_ml_0_1.jpg" class="card-img">
+                                   <h3>Shake HandZ-E Alcohol Hand Rub With Flip Cap 500ml</h3>
+                                   <div class="row justify-space">
+                                          <div class="review">
+                                         <span>Reviews</span>
+                                         <div class="rate">
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star-half stars"></i>
+                                          </div>
+                                                
+                            </div>
+                            <div class="cost">
+                                   <h4 class="price">Rs. 100</h4>
+                            </div>
+
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                            </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid//Page 1/status_n95_face_mask_white_pack_of_20_0_1.jpg" class="card-img">
+                                          <h3>Status N95 Face Mask - White (Pack Of 20)</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                       
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 200.45</h4>
+                                                 </div>
+                                              
+                                          </div>
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/ourdaily_vitamin_c_zinc_tablet_15s_0_2.jpg">
+                                          <h3>Ourdaily Vitamin C & Zinc Tablet 15's</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                 <span>Reviews</span>
+                                                 <div class="rate">
+
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star-half stars"></i>
+                                                 </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 30.15</h4>
+                                                 </div> class="price"
+                                          </div>
+                                         
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/revital_h_capsule_60s_37254_0_1.jpg">
+                                          <h3>Revital H Capsule 60'S</h3>
+                                          <div class="row justify-space" >
+                                                 <div class="review" >
+                                                 <span>Reviews</span>
+                                          <div class="rate">
+
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star-half stars"></i>
+                                          </div>
+                                          </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 400.50</h4>
+                                                 </div>
+                                          </div>
+                                         
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/dettol_antiseptic_liquid_1_ltr_0_2.jpg">
+                                          <h3>Dettol Antiseptic Liquid 1 ltr</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review" >
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 318.41</h4>
+                                                 </div>
+                                          </div>
+                                          
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/dr_vaidyas_herbofit_capsule_30s_0_1.jpg">
+                                          <h3>Dr.Vaidya's Herbofit Capsule 30's</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                        
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 110.60</h4>
+                                                 </div>
+                                          </div>
+                                          
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/dettol_disinfectant_lime_fresh_500_ml_0_1.jpg">
+                                          <h3>Dettol Disinfectant - Lime Fresh 500 ml</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 173.70</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                  
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/dettol_instant_hand_sanitizer_original_50_ml_33218_0_1.jpg">
+                                          <h3>Dettol Instant Hand Sanitizer - Original 50 ml</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 20.00</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/ciphands_professional_chg_handrub_solution_500_ml_0_2.jpg">
+                                          <h3>Ciphands Professional CHG Handrub Solution 500 ml</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 220.55</h4>
+                                                 </div>
+                                                 
+                                          </div>
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                                   </div>
+                                   <div class="card">
+                                          <div class="column">
+                                          
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/sanfe_n95_face_mask_0_2.jpg">
+                                          <h3>Sanfe N95 Face Mask</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 180.00</h4>
+                                                 </div>
+                                                 
+                                          </div>
+                                                 <button class="button buy-btn">Buy Now</button>
+                                          </div>
+                                    </div>
+                                  
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/mahalaxmi_enterprises_3_ply_face_mask_100s_0_0.jpg">
+                                          <h3>Mahalaxmi Enterprises 3 Ply Face Mask 100's</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                        <div class="cost">
+                                                               <h4 class="price">Rs. 180.00</h4>
+                                                        </div>
+                                                 </div>
+                                                 
+                                          </div>
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 1/amrutanjan_nogerms_hand_sanitizer_60_ml_0_0.jpg">
+                                          <h3>Amrutanjan Nogerms Hand Sanitizer Liquid 60 ml</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 15.00</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                         
+                     </div>
+                     
+                    </div>
+                 
+                    <div class="products">
+                   
+                     <div class="cards">
+
+                            <div class="card">
+                                   <div class="column">
+                                   <img src="/assets/Medicines/Type/Covid/Page 2/savlon_multipurpose_disinfectant_cleaner_liquid_1000_ml_0_0.jpg" class="card-img">
+                                   <h3>Savlon Multipurpose Disinfectant + Cleaner Liquid 1 Litre</h3>
+                                   <div class="row justify-space">
+                                          <div class="review">
+                                         <span>Reviews</span>
+                                         <div class="rate">
+
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star-half stars"></i>
+                                                
+                                          </div>
+                            </div>
+                            <div class="cost">
+                                   <h4 class="price">Rs. 300.00</h4>
+                            </div>
+
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/dettol_effective_protection_disinfectant_liquid_lavender_blossom_1_litre_0_0.jpg" class="card-img">
+                                          <h3>Dettol Effective Protection Disinfectant Liquid - Lavender Blossom 1 Litre</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                       
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4 class="price">Rs. 340.00</h4>
+                                                 </div>
+                                              
+                                          </div>
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/ourdaily_calcium_vitmain_d3_tablets_120s_0_0.jpg">
+                                          <h3>Ourdaily Calcium & Vitamin D3 Tablet (Pack of 8 x 15's)</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                 <span>Reviews</span>
+                                                 <div class="rate">
+
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star-half stars"></i>
+                                                 </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 350.00</h4>
+                                                 </div>
+                                          </div>
+                                         
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/resist_disinfectant_spray_bnzl_multi_surface_pack_of_4_x_500_ml_0_0.jpg">
+                                          <h3>RESIST + BNZL Multi-Surface Disinfectant Spray (Pack of 2 X 500</h3>
+                                          <div class="row justify-space" >
+                                                 <div class="review" >
+                                                 <span>Reviews</span>
+                                                 <div class="rate">
+
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star-half stars"></i>
+                                                 </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 600.00</h4>
+                                                 </div>
+                                          </div>
+                                         
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/piramal_tri_activ_clothes_disinfectant_freshner_spray_ocean_breeze_230_ml_0_0.jpg">
+                                          <h3>Piramal Tri-Activ Clothes Disinfectant & Freshner Spray - Ocean Breeze 250ml</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review" >
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 145.45</h4>
+                                                 </div>
+                                                 
+                                          </div>
+                                          
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/o2_anti_pollution_n99_face_mask_6_layer_1s_0_0.jpg">
+                                          <h3>O2+ Anti Pollution N99 Face Mask 6 Layer 1's</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 210.60</h4>
+                                                 </div>
+                                          </div>
+                                          
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/o2_anti_pollution_n99_face_mask_7_layer_1s_0_0.jpg">
+                                          <h3>O2+ Anti Pollution N99 Face Mask 7 Layer 1's</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 500.10</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                  
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/livinguard_tube_mask_lite_l_blue_pack_of_1_0_0.jpg">
+                                          <h3>Livinguard Tube Mask Lite (L) - Blue (Pack of 10)</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star-half stars"></i>
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 599.40</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/o2_3_layer_reusable_mask_1s_0_0.jpg">
+                                          <h3>O2+ 3 Layer Reusable Mask 1's</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               
+                                                        </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 160.00</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/savlon_moisture_shield_hand_wash_200_ml_0.jpg">
+                                          <h3>Savlon Moisture Shield Hand Wash 200ml</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               
+                                                        </div>
+                                                        <div class="cost">
+                                                               <h4>Rs. 62.80</h4>
+                                                        </div>
+                                                 </div>
+                                          </div>
+                            
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/status_n95_cup_face_mask_white_pack_of_10_1s_0_0.jpg">
+                                          <h3>Status N95 Cup Face Mask - White (Pack of 10)</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                        </div>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                       
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 647.00</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 2/care_view_n95_ffp2_protective_face_mask_adjustable_ear_loop_10s_0_0.jpg">
+                                          <h3>Care View N95 FFP2 Protective Face Mask (Adjustable) - Ear Loop 10's</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star-half stars"></i>
+                                                               
+                                                        </div>
+                                                        <div class="cost">
+                                                 </div>
+                                                        <h4>Rs. 700.46</h4>
+                                                 </div>
+                                          </div>
+                            
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            
+                     </div>
+                     
+                    </div>
+                
+                    <div class="products">
+
+                     <div class="cards">
+
+                            <div class="card">
+                                   <div class="column">
+                                   <img src="/assets/Medicines/Type/Covid/Page 3/puric_instasafe_germ_protection_wipes_camphor_citrus_30s_0_0.jpg" class="card-img">
+                                   <h3>Puric Instasafe Germ Protection Wipes - Camphor & Citrus 30's</h3>
+                                   <div class="row justify-space">
+                                          <div class="review">
+                                         <span>Reviews</span>
+                                         <div class="rate">
+
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star stars"></i>
+                                                <i class="fa-solid fa-star stars"></i>
+                                          </div>
+
+                                 
+                            </div>
+                            <div class="cost">
+                                   <h4 class="price">Rs. 100.00</h4>
+                            </div>
+
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 3/savlon_surface_disinfectant_spray_70_gm_0_0.jpg" class="card-img">
+                                          <h3>Savlon Surface Disinfectant Spray 70gm</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               
+                                                               
+                                                        </div>
+                                                        <div class="cost">
+                                                               <h4 class="price">Rs. 80.00</h4>
+                                                        </div>
+                                                 </div>
+                                              
+                                          </div>
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 3/romsons_maxx_face_protector_shield_gs_6111_0_1.jpg">
+                                          <h3>Romsons Maxx Face Protector Shield (GS-6111)</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                 <span>Reviews</span>
+                                                 <div class="rate">
+
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                 </div>
+                                                 <div class="cost">
+                                                 </div>
+                                                        <h4>Rs. 110.00</h4>
+                                                 </div>
+                                          </div>
+                                         
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 3/military_grade_n99_face_mask_with_two_valves_l_black_pack_of_1_0_0.jpg">
+                                          <h3>Military Grade N99 Face Mask With Two Valves (L) - Black Pack Of 1</h3>
+                                          <div class="row justify-space" >
+                                                 <div class="review" >
+                                                 <span>Reviews</span>
+                                                 <div class="rate">
+
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star stars"></i>
+                                                        <i class="fa-solid fa-star-half stars"></i>
+                                                 </div>
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 300.60</h4>
+                                                 </div>
+                                          </div>
+                                         
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 3/dr_shield_face_protect_shield_0_1.jpg">
+                                          <h3>Dr.Shield Face Protect Shield</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review" >
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                       
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 300.00</h4>
+                                                 </div>
+                                          </div>
+                                          
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            <div class="card">
+                                   <div class="column">
+                                          <img src="/assets/Medicines/Type/Covid/Page 3/bhumija_lifesciences_face_shield_mask_pack_of_5_0_0.jpg">
+                                          <h3>Bhumija Lifesciences Face Shield Mask (Pack Of 5)</h3>
+                                          <div class="row justify-space">
+                                                 <div class="review">
+                                                        <span>Reviews</span>
+                                                        <div class="rate">
+
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                               <i class="fa-solid fa-star stars"></i>
+                                                        </div>
+                                                        
+                                                 </div>
+                                                 <div class="cost">
+                                                        <h4>Rs. 380.00</h4>
+                                                 </div>
+                                          </div>
+                                          
+                                          <button class="button buy-btn">Buy Now</button>
+                                   </div>
+                            </div>
+                            
+                
+                            
+                     </div>
+              </div>
+              
+                    </div>
+
+                    <div class="pagination" id="pagi">
+                       <div class="row">
+                         <li class="pagi-list prev-b">Prev</li>
+                         <li class="pagi-list current-page">1</li>
+                         <li class="pagi-list current-page">2</li>
+                         <li class="pagi-list current-page">3</li>
+                         <li class="pagi-list next-b">Next</li>
+                      </div>
+                    </div>
+
+                    
+              </div>
+              <div class="spacer">ewew</div>
+          <!--=============== FOOTER ===============-->
+   <footer class="footer section">
+       <div class="footer__container container grid">
+           <div class="footer__content">
+               <a href="#" class="footer__logo">Medcity</a>
+               <p class="footer__description">Get medcines faster. <br> Book appointment with doctor</p>
+           </div>
+   
+           <div class="footer__content">
+               <h3 class="footer__title">Attribution</h3>
+               <ul class="footer__links">
+                   <li><a href='https://www.netmeds.com/non-prescriptions/covid-essentials' class="footer__link">Product Images By Netmeds.com</a></li>
+                   <a href="https://www.netmeds.com/non-prescriptions/covid-essentials" class="footer__link">Product Information By Netmeds.com</a>
+                   <a href="https://fontawesome.com" class="footer__link">Icons by Font Awesome</a>
+                   <a href="https://boxicons.com" class="footer__link">Icons by Boxicons</a>
+               </ul>
+           </div>
+   
+           <div class="footer__content">
+               <h3 class="footer__title">Our Office</h3>
+               <ul class="footer__links">
+                   <li><a href="#" class="footer__link">+0123456789</a></li>
+                   <li><a href="#" class="footer__link">Mumbai</a></li>
+                   <li><a href="#" class="footer__link">medcity.crew@gmail.com</a></li>
+               </ul>
+           </div>
+       </div>
+   
+       <p class="footer__copy">&#169;Medcity. All right reserved</p>
+   </footer>
+                      
+          </body>
+          </html>

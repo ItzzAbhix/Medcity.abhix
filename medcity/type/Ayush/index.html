@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Medcity | Shop</title>
+          <link rel="icon" href="/assets/favicon.png">
+          <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+          <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="media.css">
+          <script src="main.js" defer></script>
+          <script src="/firebaseConfig.js" defer></script>
+          <script src="/product.js" defer></script>
+          <script src="pagination.js" defer></script>
+          <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+          <script src="/logout.js" defer></script>
+          <script src="/reauthenticate.js" defer></script>
+          <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+          <!-----------------------------------custom tag--------------------------------->
+        
+          <script src="https://cdn.jsdelivr.net/gh/abhicodelink/custom-title-tag@master/custom-tag.bundle.js"
+                    defer></script>
+          <link rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/gh/abhicodelink/custom-title-tag@master/custom-tag.bundle.css">
+          <!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Source+Sans+Pro&display=swap"
+                    rel="stylesheet">
+          <!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+          <script src="https://kit.fontawesome.com/809920df63.js"></script>
+          <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+          <!--------------------------------------------------end------------------------------------------------------------------------------------------>
+</head>
+
+<body class="body">
+          <div class="loader">
+                    <img src="/assets/loader.gif" alt="loader">
+                    <h3 id="text-load">Loading....</h3>
+          </div>
+          <!--=============== HEADER ===============-->
+          <header class="header" id="header">
+                    <nav class="nav container">
+                              <a href="index.html" class="nav__logo">Medcity</a>
+
+                              <div class="nav__menu" id="nav-menu">
+                                        <ul class="nav__list">
+                                                  <li class="nav__item">
+                                                            <a href="../../index.html" class="nav__link active-link ">Home</a>
+                                                  </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Donate/index.html"
+                                                                      class="nav__link ">Donate</a>
+                                                  </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Book/index.html" class="nav__link">Book
+                                                                      appointment</a>
+                                                  </li>
+                                                  <li class="nav__item account-li">
+                                                    <a class="nav__link">Account</a>
+                                                    <ul class="account-dropdown">
+                                                        <li class="nav__item" onclick="window.location = '../../Account/Settings/index.html'">
+                                                            <box-icon name='cog' type='solid' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Settings</a>
+                                                        </li>
+                                                        <li class="nav__item" onclick="window.location = '../../Account/Orders/index.html'">
+                                                            <box-icon name='truck' type='solid' class="drop-box" color="#333"></box-icon>  <a  class="nav__link">  Orders</a>
+                                                        </li>
+                                                        <li class="nav__item"  onclick="window.location = '../../Account/Donations/index.html'">
+                                                            <box-icon type='solid' name='donate-heart' class="drop-box" color="#333"></box-icon>  <a class="nav__link">  Donations</a>
+                                                        </li>
+                                                        <li class="nav__item"  onclick="window.location = '../../Account/Appointments/index.html'">
+                                                            <box-icon type='solid' name='calendar-edit' class="drop-box" color="#333"></box-icon> <a class="nav__link">  Appointments</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                  <li class="nav__item">
+                                                            <a href="../../Contact/index.html" class="nav__link">Contact
+                                                                      us</a>
+                                                  </li>
+                                                  <a href="sign/index.html" class="button button__header b">Logout</a>
+                                        </ul>
+                              </div>
+
+                              <div class="nav__toggle" id="nav-toggle">
+                                        <box-icon name='grid-alt' type='solid'></box-icon>
+                              </div>
+                    </nav>
+          </header>
+          <section class="section container shop">
+                    <div class="banner">
+                              <div class="column">
+                                        <div class="row justify-space">
+                                                  <div class="path row center">
+                                                            <a style="color:white" href="../../index.html">Home</a>/<h5>
+                                                                      Ayush</h5>
+                                                  </div>
+
+                                                  <mid-title class="banner-title">Shop</mid-title>
+
+                                                  <div class="results row center">
+                                                            <h5>Showing </h5>
+                                                            <h5 class="pagi-re"> 1-12 </h5>
+                                                            <h5>Of 29 Results</h5>
+                                                  </div>
+
+                                        </div>
+                              </div>
+                    </div>
+                    <div class="big-products">
+
+                     <div class="products">
+                             <div class="cards">
+                               <div class="card">
+                                 <div class="column">
+                                   <img src="/assets/Medicines/Type/Ayush/Page 1/dabur_chyawanprash_awaleha_500_gm_0.jpg" class="card-img">
+                                   <h3>Dabur Chyawanprash Awaleha 500 gm</h3>
+                                   <div class="row justify-space">
+                                     <div class="review">
+                                       <span>Reviews</span>
+                                       <div class="rate">
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                       </div>
+                                     </div>
+                                     <div class="cost">
+                                       <h4 class="price">Rs. 118.23</h4>
+                                     </div>
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                               </div>
+                               <div class="card">
+                                 <div class="column">
+                                   <img src="/assets/Medicines/Type/Ayush/Page 1/dr_reckeweg_r89_lipocol_drops_30_ml_0_1.jpg" class="card-img">
+                                   <h3>Dr. Reckeweg R89 Lipocol Drops 30 ml</h3>
+                                   <div class="row justify-space">
+                                     <div class="review">
+                                       <span>Reviews</span>
+                                       <div class="rate">
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                       </div>
+                                     </div>
+                                     <div class="cost">
+                                       <h4 class="price">Rs. 219.00</h4>
+                                     </div>
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                               </div>
+                               <div class="card">
+                                 <div class="column">
+                                   <img src="/assets/Medicines/Type/Ayush/Page 1/dabur_hingoli_tablet_90_s_0.jpg" class="card-img">
+                                   <h3>Dabur Hingoli Tablet 90's</h3>
+                                   <div class="row justify-space">
+                                     <div class="review">
+                                       <span>Reviews</span>
+                                       <div class="rate">
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star stars"></i>
+                                         <i class="fa-solid fa-star-half stars"></i>
+                                       </div>
+                                     </div>
+                                     <div class="cost">
+                                       <h4 class="price">Rs. 10.12</h4>
+                                     </div>
+                                   </div>
+                                   <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                               </div>
+                               <div class="card">
+                                 <div class="column">
+                                     <img src="/assets/Medicines/Type/Ayush/Page 1/dabur_honitus_herbal_cough_remedy_syrup_100_ml_0.jpg" class="card-img">
+                                     <h3>Dabur Honitus Herbal Cough Remedy Syrup 100 ml</h3>
+                                     <div class="row justify-space">
+                                         <div class="review">
+                                             <span>Reviews</span>
+                                             <div class="rate">
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                             </div>
+                                         </div>
+                                         <div class="cost">
+                                             <h4 class="price">Rs. 60.23</h4>
+                                         </div>
+                                     </div>
+                                     <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                             </div>
+                             <div class="card">
+                                 <div class="column">
+                                     <img src="/assets/Medicines/Type/Ayush/Page 1/dabur_pudin_hara_active_liquid_30_ml_0.jpg" class="card-img">
+                                     <h3>Dabur Pudin Hara Active Liquid 30 ml</h3>
+                                     <div class="row justify-space">
+                                         <div class="review">
+                                             <span>Reviews</span>
+                                             <div class="rate">
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star stars"></i>
+                                                 <i class="fa-solid fa-star-half stars"></i>
+                                             </div>
+                                         </div>
+                                         <div class="cost">
+                                             <h4 class="price">Rs. 10.73</h4>
+                                         </div>
+                                     </div>
+                                     <button class="button buy-btn">Buy Now</button>
+                                 </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Ayush/Page 1/dabur_pudin_hara_pearls_capsule_10_s_0.jpg" class="card-img">
+                                 <h3>Dabur Pudin Hara Pearls Capsule 10's</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 19.24</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Ayush/Page 1/galact_granules_200gm_0.jpg" class="card-img">
+                                 <h3>Galact Granules - Elaichi Flavour 200gm</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star-half stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 170.32</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Ayush/Page 1/himalaya_wellness_ashvagandha_tablet_60_s_0.jpg" class="card-img">
+                                 <h3>Himalaya Wellness Ashvagandha Tablet 60's</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star-half stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 88.50</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Ayush/Page 1/kayam_tablet_30_s_0.jpg" class="card-img">
+                                 <h3>Kayam Tablet 30's</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <div class="rate">
+                                       <i class="fa-solid fa-star stars"></i>
+                                       <i class="fa-solid fa-star stars"></i>
+                                     </div>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 33.00</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Ayush/Page 1/liv_52_tablet_100_s_0.jpg" class="card-img">
+                                 <h3>Himalaya Liv.52 Tablet 100's</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 85.33</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                             
+                             <div class="card">
+                               <div class="column">
+                                 <img src="/assets/Medicines/Type/Ayush/Page 1/septilin_tablet_60_s_0.jpg" class="card-img">
+                                 <h3>Himalaya Septilin Tablet 60's</h3>
+                                 <div class="row justify-space">
+                                   <div class="review">
+                                     <span>Reviews</span>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star stars"></i>
+                                     <i class="fa-solid fa-star-half stars"></i>
+                                   </div>
+                                   <div class="cost">
+                                     <h4 class="price">Rs. 100.62</h4>
+                                   </div>
+                                 </div>
+                                 <button class="button buy-btn">Buy Now</button>
+                               </div>
+                             </div>
+                                       <div class="card">
+                                                 <div class="column">
+                                                           <img src="/assets/Medicines/Type/Ayush/Page 1/dabur_shilajit_gold_capsule_20s_0_1.jpg" class="card-img">
+                                                           <h3>Dabur Shilajit Gold Capsule 20's</h3>
+                                                           <div class="row justify-space">
+                                                                     <div class="review">
+                                                                               <span>Reviews</span>
+                                                                             <div class="rate">
+                                                                               <i class="fa-solid fa-star stars"></i>
+                                                                             </div>
+                                                                     </div>
+                                                                     <div class="cost">
+                                                                               <h4 class="price">Rs. 100.23</h4>
+                                                                     </div>
+                                       
+                                                           </div>
+                                                           <button class="button buy-btn">Buy Now</button>
+                                                 </div>
+                                       </div>
+                             </div>
+                     </div>
+                     <div class="products">
+         <div class="cards">
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Ayush/Page 2/amlycure_ds_capsule_20s_0_1.jpg" class="card-img">
+               <h3>Aimil Amlycure D.S Capsule 20's</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                   </div>
+                 </div>
+                 <div class="cost">
+                   <h4 class="price">Rs. 100.71</h4>
+                 </div>
+               </div>
+               <button class="button buy-btn">Buy Now</button>
+             </div>
+           </div>
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Ayush/Page 2/dabur_hajmola_imli_tablets_120_s_0.jpg" class="card-img">
+               <h3>Dabur Hajmola Imli Digestive Tablets 120's</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                   </div>
+                 </div>
+                 <div class="cost">
+                   <h4 class="price">Rs. 20.54</h4>
+                 </div>
+               </div>
+               <button class="button buy-btn">Buy Now</button>
+             </div>
+           </div>
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Ayush/Page 2/dabur_hajmola_regular_tablet_120_s_0.jpg" class="card-img">
+               <h3>Dabur Hajmola Regular Digestive Tablet 120's</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                   </div>
+                 </div>
+                 <div class="cost">
+                   <h4 class="price">Rs. 20.54</h4>
+                  </div>
+                </div>
+                <button class="button buy-btn">Buy Now</button>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="column">
+                <img src="/assets/Medicines/Type/Ayush/Page 2/dabur_naturecare_double_action_powder_100_gm_0.jpg" class="card-img">
+                <h3>Dabur Naturecare Double Action Powder 100 gm</h3>
+                <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star-half stars"></i>
+                    </div>
+                  </div>
+                  <div class="cost">
+                   <h4 class="price">Rs. 93.00</h4>
+                 </div>
+               </div>
+               <button class="button buy-btn">Buy Now</button>
+             </div>
+            </div>
+            
+           <div class="card">
+             <div class="column">
+               <img src="/assets/Medicines/Type/Ayush/Page 2/pankajakasthuri_orthoherb_tablet_60_s_0.jpg" class="card-img">
+               <h3>Pankajakasthuri Orthoherb Tablet 60's</h3>
+               <div class="row justify-space">
+                 <div class="review">
+                   <span>Reviews</span>
+                   <div class="rate">
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star stars"></i>
+                     <i class="fa-solid fa-star-half stars"></i>
+                    </div>
+                  </div>
+                  <div class="cost">
+                    <h4 class="price">Rs. 144.32</h4>
+                  </div>
+                </div>
+                <button class="button buy-btn">Buy Now</button>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="column">
+                <img src="/assets/Medicines/Type/Ayush/Page 2/dabur_sat_isabgol_husk_100_gm_0.jpg" class="card-img">
+                <h3>Dabur Sat Isabgol Husk 100 gm</h3>
+                <div class="row justify-space">
+                  <div class="review">
+                    <span>Reviews</span>
+                    <div class="rate">
+                      <i class="fa-solid fa-star stars"></i>
+                      <i class="fa-solid fa-star stars"></i>
+                      <i class="fa-solid fa-star stars"></i>
+                      <i class="fa-solid fa-star stars"></i>
+                      <i class="fa-solid fa-star stars"></i>
+                    </div>
+                  </div>
+                  <div class="cost">
+                    <h4 class="price">Rs. 60.32</h4>
+                  </div>
+                </div>
+                <button class="button buy-btn">Buy Now</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="column">
+                <img src="/assets/Medicines/Type/Ayush/Page 2/diabecon_ds_tablet_60_s_0.jpg" class="card-img">
+                <h3>Himalaya Diabecon DS Tablet 60's</h3>
+                                       <div class="row justify-space">
+                                                 <div class="review">
+                                                           <span>Reviews</span>
+                                                           <div class="rate">
+                                                           <i class="fa-solid fa-star stars"></i>
+                                                           <i class="fa-solid fa-star stars"></i>
+                                                           <i class="fa-solid fa-star stars"></i>
+                                                           </div>
+                                                           
+                                                 </div>
+                                                 <div class="cost">
+                                                           <h4 class="price">Rs. 101.37</h4>
+                                                 </div>
+                                                 
+                                       </div>
+                                       <button class="button buy-btn">Buy Now</button>
+                             </div>
+                   </div>
+                   <div class="card">
+                    <div class="column">
+                              <img src="/assets/Medicines/Type/Ayush/Page 2/dr_reckeweg_r41_fortivirone_drops_22_ml_0.jpg" class="card-img">
+                              <h3>Dr. Reckeweg R41 Fortivirone Drops 22 ml</h3>
+                              <div class="row justify-space">
+                                        <div class="review">
+                                                  <span>Reviews</span>
+                                                  <div class="rate">
+                                                  <i class="fa-solid fa-star stars"></i>
+                                                  <i class="fa-solid fa-star stars"></i>
+                                                  </div>
+                                                  
+                                        </div>
+                                        <div class="cost">
+                                                  <h4 class="price">Rs. 132,85</h4>
+                                        </div>
+                                        
+                              </div>
+                              <button class="button buy-btn">Buy Now</button>
+                    </div>
+          </div>
+          <div class="card">
+            <div class="column">
+                      <img src="/assets/Medicines/Type/Ayush/Page 2/mentat_tablet_60_s_0.jpg" class="card-img">
+                      <h3>Himalaya Mentat Tablet 60's</h3>
+                      <div class="row justify-space">
+                                <div class="review">
+                                          <span>Reviews</span>
+                                          <div class="rate">
+                                          <i class="fa-solid fa-star stars"></i>
+                                          <i class="fa-solid fa-star stars"></i>
+                                          <i class="fa-solid fa-star stars"></i>
+                                          </div>
+                                          
+                                </div>
+                                <div class="cost">
+                                          <h4 class="price">Rs. 47.60</h4>
+                                </div>
+                                
+                      </div>
+                      <button class="button buy-btn">Buy Now</button>
+            </div>
+  </div>
+  <div class="card">
+    <div class="column">
+              <img src="/assets/Medicines/Type/Ayush/Page 2/pankajakasthuri_breathe_easy_granules_400_gm_43929_0_1.jpg" class="card-img">
+              <h3>Pankajakasthuri Breathe Easy Granules 400 gm</h3>
+              <div class="row justify-space">
+                        <div class="review">
+                                  <span>Reviews</span>
+                                  <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  </div>
+                                  
+                        </div>
+                        <div class="cost">
+                                  <h4 class="price">Rs. 104.90</h4>
+                        </div>
+                        
+              </div>
+              <button class="button buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="card">
+  <div class="column">
+            <img src="/assets/Medicines/Type/Ayush/Page 2/pankajakasthuri_orthoherb_oil_100_ml_0.jpg" class="card-img">
+            <h3>Pankajakasthuri Orthoherb Oil 100 ml</h3>
+            <div class="row justify-space">
+                      <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star-half stars"></i>
+                                </div>
+                                
+                      </div>
+                      <div class="cost">
+                                <h4 class="price">Rs. 15.00</h4>
+                      </div>
+                      
+            </div>
+            <button class="button buy-btn">Buy Now</button>
+  </div>
+</div>
+<div class="card">
+  <div class="column">
+            <img src="/assets/Medicines/Type/Ayush/Page 2/zandu_balm_8_ml_0.jpg" class="card-img">
+            <h3>Zandu Balm 8 ml</h3>
+            <div class="row justify-space">
+                      <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star stars"></i>
+                                <i class="fa-solid fa-star stars"></i>
+                                </div>
+                                
+                      </div>
+                      <div class="cost">
+                                <h4 class="price">Rs. 28.00</h4>
+                      </div>
+                      
+            </div>
+            <button class="button buy-btn">Buy Now</button>
+  </div>
+</div>
+         </div>
+                     </div>
+                     <div class="products">
+                      <div class="cards">
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Ayush/Page 3/dabur_hajmola_pudina_tablet_120_s_0.jpg" class="card-img">
+                            <h3>Dabur Hajmola Pudina Tablet 120's</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 20.54</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Ayush/Page 3/dabur_triphala_tablet_60_s_0.jpg" class="card-img">
+                            <h3>Dabur Triphala Tablet 60's</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 32.50</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Ayush/Page 3/kayam_churna_100_gm_0.jpg" class="card-img">
+                            <h3>Kayam Churna 100 gm</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star-half stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 24.75</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Ayush/Page 3/zandu_balm_ultra_power_8_ml_0.jpg" class="card-img">
+                            <h3>Zandu Balm Ultra Power 8 ml</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star-half stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 48.00</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>    
+                        <div class="card">
+                          <div class="column">
+                            <img src="/assets/Medicines/Type/Ayush/Page 3/prosteez_tablet_20s_115089_0_2.jpg" class="card-img">
+                            <h3>Prosteez Tablet 20'S</h3>
+                            <div class="row justify-space">
+                              <div class="review">
+                                <span>Reviews</span>
+                                <div class="rate">
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star stars"></i>
+                                  <i class="fa-solid fa-star-half stars"></i>
+                                </div>
+                              </div>
+                              <div class="cost">
+                                <h4 class="price">Rs. 55.00</h4>
+                              </div>
+                            </div>
+                            <button class="button buy-btn">Buy Now</button>
+                          </div>
+                        </div>     
+                      </div>
+                                  </div>
+            
+                    </div>
+
+<div class="pagination" id="pagi">
+          <div class="row">
+                    <li class="pagi-list prev-b">Prev</li>
+                    <li class="pagi-list current-page">1</li>
+                    <li class="pagi-list current-page">2</li>
+                    <li class="pagi-list current-page">3</li>
+                    <li class="pagi-list next-b">Next</li>
+          </div>
+</div>
+</section>
+<div class="spacer">ewew</div>
+   <!--=============== FOOTER ===============-->
+   <footer class="footer section">
+    <div class="footer__container container grid">
+        <div class="footer__content">
+            <a href="#" class="footer__logo">Medcity</a>
+            <p class="footer__description">Get medcines faster. <br> Book appointment with doctor</p>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Attribution</h3>
+            <ul class="footer__links">
+                <li><a href='https://www.netmeds.com/non-prescriptions/ayush' class="footer__link">Product Images By Netmeds.com</a></li>
+                <a href="https://www.netmeds.com/non-prescriptions/ayush" class="footer__link">Product Information By Netmeds.com</a>
+                <a href="https://fontawesome.com" class="footer__link">Icons by Font Awesome</a>
+                <a href="https://boxicons.com" class="footer__link">Icons by Boxicons</a>
+            </ul>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Our Office</h3>
+            <ul class="footer__links">
+                <li><a href="#" class="footer__link">+0123456789</a></li>
+                <li><a href="#" class="footer__link">Mumbai</a></li>
+                <li><a href="#" class="footer__link">medcity.crew@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="footer__copy">&#169;Medcity. All right reserved</p>
+</footer>
+
+
+                    </body>
+                    </html>

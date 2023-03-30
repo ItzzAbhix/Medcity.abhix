@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+          <head>
+                                        <meta charset="utf-8">
+                                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                        <title>Medcity | Appointment Booked</title>
+                                        <link rel="icon" href="/assets/favicon.png">
+                                        <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+                                        <link rel="stylesheet" href="style.css">
+                                        <script src="book.js" defer></script>
+                                        <script src="/firebaseConfig.js" defer></script>
+                                        <script src="succes.js" defer></script>
+                                               <!---------------------------------------------------------------------------------firebase------------------------------------------------------>
+                                               <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                                               <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+                                               <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+                                        <!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+                                        <link rel="preconnect" href="https://fonts.googleapis.com">
+                                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                                        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+                                        <!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+                                        <script src="https://kit.fontawesome.com/809920df63.js"></script>
+                                        <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+          </head>
+          <body>
+                    <div class="success">
+                              <div class="big-title">
+                                        <h3>Booking Success</h3>
+                                        <hr>
+                              </div>
+                              <div class="success-form">
+                                        <div class="i-bg">
+                                                  <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <h3 class="bottom"> Your Booking Is Completed</h3>
+                                        <hr class="bottom">
+                                        <div class="number" style="text-align:left;">
+                                                  <h3></h3>
+                                                  <h3 style="color:rgb(3, 139, 35);" class="num"></h3>
+                                        </div>
+                              </div>
+                              <div class="success-info">
+                                        <div class="ii-bg">
+                                                  <i class="fa-solid fa-exclamation"></i>
+                                        </div>
+                                        <div clas="text">
+                                                  <p>You Will Receive A Booking Confirmation By Email. If You Do Not Receive An Email In 5
+                                                            Minutes, Please Check The Spam Or Junk Mail Folder.If You Want To Change
+                                                            Appointment Please Call Us On +1234567890 Or Email Us At medcity.crew@gmail.com</p>
+                                        </div>
+                                       
+                              </div>
+                              <button class="back-btn" onclick="goback()">Continue &#8594</button>
+                    </div>       
+          </body>
+</html>

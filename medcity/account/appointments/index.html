@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+          <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Medcity | Appointments</title>
+                    <link rel="icon" href="/assets/favicon.png">
+                    <!---------------------------------emailjs-------------------------->
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+                    <!--------------------------------------------firebase------------------------------------------>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+                    <!-----------------------------------------------style and js------------------------------------------------------------------------------>
+                    <script src="/firebaseConfig.js"></script>
+                     <link rel="stylesheet" href="style.css">
+                     <link rel="stylesheet" href="media.css">
+         <script src="main.js" defer></script>
+         <script src="/logout.js" defer></script>
+         <script src="getAppo.js" defer></script>
+         <script src="/reauthenticate.js"></script>
+         <script src="cancelAppo.js" defer></script>
+         <script src="editAppo.js" defer></script>
+<!--------------------------------------------------------------------------fonts------------------------------------------------------------------>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<!---------------------------------------------------------------------------icons-------------------------------------------------------------------->
+<script src="https://kit.fontawesome.com/809920df63.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+<!--------------------------------------------------end------------------------------------------------------------------------------------------>
+          </head>
+          <body class="body">
+            <div class="loader2">
+                <img src="/assets/favicon.png">
+           </div>
+            <div class="loader">
+                <img src="/assets/loader.gif">
+                <h3 id="text-load">Loading....</h3>
+            </div>
+            <div class="error-div">
+                <div class="ico">
+                  <i class="fa-solid fa-exclamation-circle"></i>
+                </div>
+                <div class="error">
+                  
+                  <h3>Error!</h3>
+                  <div class="sub">
+                    <p>eerorr</p>
+                  </div>
+                  
+                </div>
+                <div class="close-btn">
+                  <i class="fa-solid fa-times"></i>
+                </div>
+              </div>
+              
+              <!--==========================CANCEL=============-->
+              <div class="cancel">
+                <div class="cancel-popup">
+                  <div class="cancel-header">
+                    <div class="title">
+                      <h1>Cancel?</h1>
+                    </div>
+                  <i class="fas fa-times" onclick="document.querySelector('.cancel').style.display = 'none';" style="font-size: 18px;cursor: pointer;"></i>
+                    </div>
+                    <p>Are you sure you want cancel your appointment?</p>
+                    <button class="can-can-btn">Yes, Cancel!</button>
+                </div>
+                <div class="cancel-popup2">
+                  <div class="cancel-header">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <h1>Cancelled!</h1>
+                  <p>Your Appointment Was Cancelled Successfully</p>
+                  <button class="btn-ca-con">Continue</button>
+                </div>
+              </div>
+
+              <!--===================EDIT=====================-->
+
+              <div class="edit">
+                <div class="edit-popup">
+                    <div class="edit-header">
+                  <div class="title">
+                    <h1>Reschedule</h1>
+                </div>
+                <i class="fas fa-times"></i>
+                  </div>
+                  <div class="flex">
+                  <div class="edit-date">
+                    <h4>DATE</h4>
+                    <input type="date" class="int" id="date-int">
+                  </div>
+                  <div class="edit-time">
+                    <div class="column right">
+                    <h4>HOUR</h4>
+                    <select class="select right" id="hour">
+                        <option selected>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    </div>
+                    <div class="column right">
+                        <h4>MIN</h4>
+    <select class="select right" id="min">
+        <option selected>00</optionselected>
+        <option>05</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>25</option>
+        <option>30</option>
+        <option>35</option>
+        <option>40</option>
+        <option>45</option>
+        <option>50</option>
+        <option>55</option>
+    </select>
+                    </div>
+                    <div class="column right">
+                        <h4>AM/PM</h4>
+    <select class="select" id="day">
+        <option selected>AM</optionselected>
+        <option>PM</option>
+    </select>
+                    </div>   
+                  </div>
+                  </div>
+                  <button class="re-btn">Reschedule</button>
+                </div>
+                <div class="edit-popup2">
+                  <div class="title">
+                    <h1>Are You Sure?</h1>
+                  </div>
+                  <p>Are you sure that you want to change the appointment Date or Time to - <br>
+                   <p id="edit-date-popup2"> </p>
+                   <br>
+                   <p id="edit-time-popup2"> </p>
+                  </p>
+                  <button class="btn-re">Confirm</button>
+                  <button class="btn-re-ca">Cancel</button>
+                </div>
+              </div>
+              
+          
+          <!--=============== HEADER ===============-->
+          <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">Medcity</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="../../index.html" class="nav__link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../../Donate/index.html" class="nav__link ">Donate</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../../Book/index.html" class="nav__link">Book appointment</a>
+                        </li>  
+                        <li class="nav__item account-li">
+                            <a class="nav__link active-link">Account</a>
+                            <ul class="account-dropdown">
+                                <li class="nav__item" onclick="window.location = '../Settings/index.html'">
+                                    <box-icon name='cog' type='solid' class="drop-box" color="#333"></box-icon> <a href="../Settings/index.html"  class="nav__link">  Settings</a>
+                                </li>
+                                <li class="nav__item" onclick="window.location = '../Orders/index.html'">
+                                    <box-icon name='truck' type='solid' class="drop-box" color="#333"></box-icon>  <a href="../Orders/index.html"  class="nav__link">  Orders</a>
+                                </li>
+                                <li class="nav__item" onclick="window.location = '../Donations/index.html'">
+                                    <box-icon type='solid' name='donate-heart' class="drop-box" color="#333"></box-icon>  <a href="../Donations/index.html"  class="nav__link">  Donations</a>
+                                </li>
+                                <li class="nav__item" onclick="window.location = 'index.html'">
+                                    <box-icon type='solid' name='calendar-edit' class="drop-box" color="#333"></box-icon> <a href="index.html"  class="nav__link">  Appointments</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../Contact/index.html" class="nav__link">Contact us</a>
+                        </li>
+                        <a href="sign/index.html" class="button button__header b">Logout</a>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                  <box-icon name='grid-alt' type='solid' ></box-icon>
+                </div>
+            
+            </nav>
+        </header>
+        <main>
+            <section class="section container apointment-made">
+                <div class="big-wrapper">
+                  <div class="header-wrapper">
+                    <div class="title">
+                        <h1>Appointments</h1>
+                    </div>
+                </div>
+                <div class="appointments">
+                </div>
+              </div>
+            </section>
+        </main>
+       </body>
+</html>            

@@ -1,0 +1,196 @@
+@media screen and (max-width:400px) {
+    body {
+        margin: 0;
+    }
+    
+    .checkout {
+        padding: 5px !important;
+    }
+    .container{
+        width: 100%;
+        padding: 5px;
+    }
+    .navigation {
+        padding: 20px 0 40px 0;
+    }
+    section {
+        padding: 5px;
+    }
+    .item__details {
+        padding: 10px;
+    }
+    .payment__types {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+   .payment__info {
+    flex-direction: column;
+    gap: 20px;
+   }
+   .payment__shipping {
+    order: -1;
+   }
+   .payment-div {
+    width: 100%;
+   }
+   .payment-div .row {
+    width: 100%;
+   }
+   .payment-div .field {
+    width: 100% !important;
+    padding-right: 30px !important;
+   }
+   .ddl {
+    width: 100% !important;
+    margin-bottom: 10px;
+
+   }
+.payment__title {
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+   }
+   .payment-gpay , .payment-paypal {
+    padding: 5px;
+   }
+   .btn-paypal , .btn-gpay {
+    width: 100%;
+   }
+   .actions {
+    max-width: 100%;
+   }
+   .checkoutLoader h2{
+width: 100%;
+white-space: normal;
+word-wrap: break-word;
+text-align: center;
+   }
+   .checkoutLoader img {
+    width: 160px;
+    height: 160px;
+   }
+   .paypal-container {
+    width: 100%;
+    height: 100%;
+   }
+   .paypal {
+    width: 100%;
+    height: 60%;
+    margin-top: 100px;
+    border-radius: 0;
+   }
+   .paypal-container .paypal .header .logo img {
+    width: 120px;
+   }
+   .paypal-container .paypal .content {
+    padding: 0;
+   }
+   .paypal-container .paypal .content .btn-paypal-cont {
+    text-align: center;
+   }
+}
+
+@media screen and (max-width:700px){
+    body {
+        margin: 0;
+    }
+    
+    .checkout {
+        padding: 10px;
+    }
+    .container{
+        width: 100%;
+        padding: 10px;
+    }
+    .navigation {
+        padding: 20px 0 40px 0;
+    }
+    section {
+        padding: 12px;
+    }
+    .item__details {
+        padding: 10px;
+    }
+    .payment__types {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+   .payment__info {
+    flex-direction: column;
+    gap: 20px;
+   }
+   .payment__shipping {
+    order: -1;
+   }
+   .payment-div {
+    width: 100%;
+   }
+   .payment-div .row {
+    width: 100%;
+   }
+   .payment-div .field {
+    width: 50%;
+    padding-right: 30px;
+   }
+   .ddl {
+    width: 70%;
+    margin-bottom: 10px;
+   }
+.payment__title {
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+   }
+   .btn-paypal , .btn-gpay {
+    width: 100%;
+   }
+   .btn-paypal img , .btn-gpay img {
+    width: 130px;
+   }
+   .checkoutLoader h2{
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+       }
+       .checkoutLoader img {
+        width: 160px;
+        height: 160px;
+       }
+}
+
+@media screen and (min-width:700px) {
+    section {
+        padding: 20px;
+    }
+    .field {
+        width: 70%;
+    }
+    .ddl {
+        margin-bottom: 10px;
+    }
+    .btn-gpay , .btn-paypal{
+        width: 80%;
+    }
+    .btn-gpay img, .btn-paypal img {
+        width: 100px;
+    }
+}
+@media screen and (min-width:968px){
+    .field {
+        width: 50%;
+    }
+    .ddl {
+        margin-bottom: 0;
+    }
+    .btn-gpay , .btn-paypal{
+        width: 50%;
+    }
+    .btn-gpay img, .btn-paypal img {
+        width: 100px;
+    }
+}
