@@ -13,9 +13,10 @@ function sendEmail(){
          document.querySelector('.wrapper2').style.display = "flex";
         })
         .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.log("error")
+          document.querySelector('.error-div').style.right = "10px";
+          setTimeout(function(){
+          document.querySelector('.error-div').style.right = "-500%";
+          },10000);
         });
     }
       
