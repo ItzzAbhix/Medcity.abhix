@@ -56,6 +56,21 @@ margin-top: 30px;
 .error-section #re-btn {
     width: 90% !important;
 }
+.goodbye-human .top-top img {
+    width: 70% !important;
+}
+.goodbye-human .bottom-top{
+    font-size: 30px;
+    text-align: center;
+}
+.goodbye-human .bottoms .top-bottoms {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+.goodbye-human .bottom-bottoms button {
+    width: 100% !important;
+}
 }
 
 @media screen and (max-width:700px){
@@ -119,6 +134,21 @@ margin-top: 30px;
 .error-section #re-btn {
     width: 30%;
 }
+.goodbye-human .top-top img {
+    width: 50%;
+}
+.goodbye-human .bottom-top{
+    font-size: 30px;
+    text-align: center;
+}
+.goodbye-human .bottoms .top-bottoms {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+.goodbye-human .bottom-bottoms button {
+    width: 80%;
+}
 }
 @media screen and (max-width:968px){
     .wrapper .box input {
@@ -147,6 +177,21 @@ margin-top: 30px;
         word-wrap: break-word;
     }
     .error-section #re-btn {
+        width: 30%;
+    }
+    .goodbye-human .top-top img {
+        width: 40%;
+    }
+    .goodbye-human .bottom-top{
+        font-size: 30px;
+        text-align: center;
+    }
+    .goodbye-human .bottoms .top-bottoms {
+        font-size: 15px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .goodbye-human .bottom-bottoms button {
         width: 30%;
     }
 }
