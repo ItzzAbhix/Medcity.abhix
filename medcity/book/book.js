@@ -1,6 +1,5 @@
 
 
-
 //working with book function//
 function book() {
     var select1 = document.getElementById("hour");
@@ -38,25 +37,22 @@ function book() {
         if (user){
           var uid = user.uid;
           getsetBookData(uid,time,full_date);
+          setTimeout(function () {
+            loader.style.display = "none";
+            form.style.display = "none";
+            confirme(input.value, time, textarea.value);
+          }, 6000);
         }
         else {
           ;
         }
-      })
+      });
   
-      setTimeout(function () {
-        loader.style.display = "none";
-        form.style.display = "none";
-        confirme(input.value, time, textarea.value);
-      }, 6000);
     }
   }
   //confirme function//
   function confirme(date, time, message) {
     document.querySelector(".none").style.display = "block";
-    document.querySelector(".btn-2-div").style.display = "flex";
-    document.querySelector(".btn-div").style.display = "none";
-
   }
   
   //working to get and set  tall data from firebase//
@@ -102,11 +98,11 @@ function book() {
   //confirms function//
   function confirms() {
     
-    var loader = document.querySelector(".form-loader");
+    var loader = document.querySelector(".form-loader2");
     var confirm = document.querySelector(".none");
+    document.querySelector('.wrapper').classList.add("sm-loader");
     loader.style.display = "flex";
     setBookData();
-  
   }
   
   
@@ -173,7 +169,7 @@ function book() {
             setTimeout(function(){
                 confirm.style.display = "none";
                 document.querySelector(".form").style.display = "block";
-              window.location  = "Booking Success.html?mqfurfeg=" + token;
+              window.location  = "success.html?mqfu48yrejirehreurerguyr8733r8783r38ri3vru836fruyhjefryerrerererr3hry98rurfeg=" + token;
             },6000);
           }).catch(function(){
             show_error("There was an error"+ "<br>" + "Please try again to book after reloading");
@@ -183,3 +179,4 @@ function book() {
 
      })
   }
+

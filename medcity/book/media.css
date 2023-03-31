@@ -41,8 +41,33 @@ width: 50%;
     }
  
   }
-  
+   
   /* For medium devices */
+
+  @media screen and (max-width:560px){
+    .forms {
+      height: 100%;
+    }
+    .form {
+      height: 100%;
+    }
+    .row {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .success {
+      width: 100% !important;
+    }
+    .success-info {
+      flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    }
+    .ii-bg {
+      width: 30px;
+      height: 30px;
+    }
+  }
   @media screen and (min-width: 576px) {
     .svg__img {
       width: 100%;
@@ -82,8 +107,15 @@ width: 50%;
 
  
   }
-
+  @media screen and (max-width:400px) {
+    .doctor .container {
+      padding:5px !important;
+    }
+  }
   @media screen and (max-width:700px){
+    body {
+      height:100%;
+    }
 
 .modal {
     height: 100vh;
@@ -98,6 +130,17 @@ height: 100%;
     width: 100px;
     height: 100px;
     }
+    .doctor {
+      padding-left: 5px;
+      margin-bottom: 5rem !important;
+    }
+    .wrapper {
+      width: 100%;
+    }
+    .banner {
+      margin-left: 0;
+      margin-top: 4rem;
+    }
     .doctor .container {
         flex-direction: column;
         padding: 20px;
@@ -109,12 +152,55 @@ height: 100%;
     .nav__menu {
         padding: 2.5rem 0;
     }
-    .btn-div {
-        left: 0;
-        bottom: -50px;
+    .success {
+      width: 90%;
+    }
+    .success-info {
+      flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    }
+    .ii-bg {
+      width: 40px;
+      height: 40px;
     }
   }
-
+@media screen and (min-width:700px){
+  .doctor {
+    padding-left: 20px;
+  }
+  .doctor .container {
+    flex-direction: column;
+    padding: 20px;
+}
+.wrapper {
+  width:70%;
+margin-left: 70px;
+}
+  .forms {
+    width: 100%;
+    margin-left: 0;
+  }
+  .form {
+    width: 100%;
+      }
+  .row {
+    gap: 10px;
+  }
+  .banner {
+    margin-left: 70px;
+  }
+}
+@media screen and (min-width:1115px){
+  .doctor .container {
+    flex-direction: row !important;
+    padding: 20px;
+}
+.wrapper {
+  width:60%;
+margin-right: 70px;
+}
+}
 
   
   @media screen and (min-width: 767px) {

@@ -1,4 +1,4 @@
-
+function startMedcity(){
 function set() {
   var date = new Date();
   var dates = date.getDate();
@@ -121,3 +121,6 @@ document.addEventListener('click', (event) => {
 document.querySelector('.account-dropdown').addEventListener('mouseenter' , () => {
   document.querySelector('.account-dropdown').parentElement.classList.add('drop-hovered');
 });
+
+
+}
