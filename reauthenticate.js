@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", function(){
 // Get the file name from the URL
 const fileName = url.substring(url.lastIndexOf('/')+1);
 
-if (fileName == "reauthenticate.html"){
+if (fileName == "reauthenticate"){
 
   const counter = document.getElementById("counter");
   
@@ -22,7 +22,7 @@ if (fileName == "reauthenticate.html"){
   
     // If the count reaches 0, clear the interval
     if (count === 0) {
-      window.location = "/sign/index.html";
+      window.location = "/sign/";
     };
   }, 2000);
 }
@@ -33,7 +33,7 @@ else {
         } else {
           this.setTimeout(function(){
             console.log("not signed")
-            window.location = "/reauthenticate.html";
+            window.location = "/reauthenticate";
           },3000)
         }
       });
