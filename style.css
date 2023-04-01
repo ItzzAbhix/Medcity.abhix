@@ -895,7 +895,7 @@ margin-left: 0;
     grid-template-columns: repeat(3, 1fr);
   }
   .contact__container {
-    grid-template-columns: 3fr 1.5fr 1.25fr;
+    grid-template-columns: 3fr 2fr 1.25fr;
   }
   .footer__container {
     grid-template-columns: repeat(5, 1fr);
