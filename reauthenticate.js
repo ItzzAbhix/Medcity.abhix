@@ -43,6 +43,6 @@ else {
 
 
 function reauthtologin(){
-  window.location = "/sign/index.html";
+  window.location = "/sign/";
 };
 

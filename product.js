@@ -14,7 +14,7 @@ for (const card of cards) {
               var dir = loc.split('/');
               var la_dir = dir[(dir.length - 2)];
               setSession(html_h3,html_img,html_price,html_review,la_dir);
-              window.location.href = "../../product_detail/index.html";
+              window.location.href = "../../product_detail/";
        });
 }
 
