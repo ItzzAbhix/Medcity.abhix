@@ -725,8 +725,16 @@ background-color: #1A1A1A;
     width: 100%;
   }
   .contact__form {
-    padding: 10px;
+    padding: 5px !important;
     padding-top: 80px;
+  }
+  .close_btn {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+  }
+  .modal {
+    margin-top: 150px;
   }
   .row {
     display: flex;

@@ -40,7 +40,9 @@ width: 50%;
     .footer__content {
       margin-top: 40px;
     }
- 
+    .error-div {
+      width: 70%;
+     }
   }
   
   /* For medium devices */
@@ -129,8 +131,15 @@ height: 100%;
     width: 100px;
     height: 100px;
     }
+    .error-div {
+      width: 70%; 
+     }
   }
-
+@media screen and (min-width:700px){
+  .error-div {
+    width: 40%;
+  }
+}
 
   
   @media screen and (min-width: 767px) {
@@ -197,7 +206,11 @@ height: 100%;
     
       }
   }
-  
+  @media screen and (minn-width:1115px){
+    .error-div {
+      width: 32%;
+    }
+  }
   @media screen and (min-width: 1024px) {
     .container {
       margin-left: auto;

@@ -532,7 +532,7 @@ margin-top: 40px;
 .error-div {
   background-color: #fff;
   position: fixed;
-  right: -100%;
+  right: -150%;
   border-radius: 10px;
   color: #333;
   box-shadow: 0 0  10px 20px rgba(0, 0, 0, 0.1);

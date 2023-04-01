@@ -39,11 +39,18 @@
             .footer__content {
               margin-top: 40px;
             }
-            
+            .error-div {
+              width: 94% !important;
+             }
          
           }
           
           /* For medium devices */
+          @media screen and (max-width:560px){
+            .error-div {
+              width: 70%;
+             }
+          }
           @media screen and (min-width: 576px) {
             .svg__img {
               width: 100%;
@@ -123,8 +130,8 @@
 height: 100vh;
           }
           .error-div {
-            width: 90%;
-          }
+            width: 70%; 
+           }
           .don {
             padding: 10px;
             padding-top: 100px;
@@ -165,9 +172,16 @@ height: 100vh;
               width: 60%;
               margin-top: 40px;
              }
+             .error-div {
+              width: 40%;
+            }
           }
   
-    
+          @media screen and (min-width:1115px){
+            .error-div {
+              width: 32%;
+            }
+          }
           
           @media screen and (min-width: 767px) {
             body {

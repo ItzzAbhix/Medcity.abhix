@@ -39,7 +39,9 @@ width: 50%;
     .footer__content {
       margin-top: 40px;
     }
- 
+ .error-div {
+  width: 94% !important;
+ }
   }
    
   /* For medium devices */
@@ -67,6 +69,9 @@ width: 50%;
       width: 30px;
       height: 30px;
     }
+   .error-div {
+    width: 70%;
+   }
   }
   @media screen and (min-width: 576px) {
     .svg__img {
@@ -164,6 +169,9 @@ height: 100%;
       width: 40px;
       height: 40px;
     }
+    .error-div {
+     width: 70%; 
+    }
   }
 @media screen and (min-width:700px){
   .doctor {
@@ -190,6 +198,9 @@ margin-left: 70px;
   .banner {
     margin-left: 70px;
   }
+  .error-div {
+    width: 40%;
+  }
 }
 @media screen and (min-width:1115px){
   .doctor .container {
@@ -199,6 +210,9 @@ margin-left: 70px;
 .wrapper {
   width:60%;
 margin-right: 70px;
+}
+.error-div {
+  width: 32%;
 }
 }
 

@@ -452,7 +452,7 @@
         .error-div {
           background-color: #fff;
           position: fixed;
-          right: -100%;
+          right: -150%;
           border-radius: 10px;
           color: #333;
           box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.1);
@@ -463,6 +463,20 @@
           align-items: center;
           gap: 20px;
           transition: 0.8s right ease-in;
+        }
+        .error-div .error {
+          max-width: 100%;
+          width: 100%;
+        }
+        .error-div .error .sub {
+          max-width: 100%;
+          width: 100%;
+        }
+        .error-div .error .sub p {
+          max-width: 100%;
+          width: 100%;
+          white-space: normal;
+          word-break: break-word;
         }
         .ico {
           font-size: 30px;

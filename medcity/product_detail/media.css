@@ -27,7 +27,9 @@
     .footer__content {
               margin-top: 40px;
     }
-
+    .error-div {
+        width: 94% !important;
+       }
 }
 @media screen and (max-width:400px){
     .big-wrapper {
@@ -63,6 +65,11 @@
 }
 
 /* For medium devices */
+@media screen and (max-width:560px){
+    .error-div {
+        width: 70%;
+       } 
+}
 @media screen and (min-width: 576px) {
     .svg__img {
               width: 100%;
@@ -142,8 +149,16 @@
             .description-div {
                 width: 70%;
             }
+            .error-div {
+                width: 70%; 
+               }
         }
-        
+        @media screen and (min-width:700px){
+            .error-div {
+                width: 40%;
+              }
+        }
+
         @media screen and (min-width: 767px) {
             body {
                 margin: 0;
@@ -165,6 +180,11 @@
 }
 
 /* For large devices */
+@media screen and (min-width:1115px){
+    .error-div {
+        width: 32%;
+      }
+}
 @media screen and (min-width: 968px) {
     .button__header {
               display: block;
