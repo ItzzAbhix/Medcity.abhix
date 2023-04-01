@@ -17,6 +17,8 @@ function show_error(error){
     document.querySelector('.error-div').style.right = "-150%";
    }
 
+
+   function startMedcity(){
    function load() {
     document.querySelector(".body").style.overflow = "hidden";
     setTimeout(function () {
@@ -42,15 +44,7 @@ function show_error(error){
   
         showMenu('nav-toggle','nav-menu')
         
-        /*=============== REMOVE MENU MOBILE ===============*/
-        const navLink = document.querySelectorAll('.nav__link')
-        
-        function linkAction(){
-            const navMenu = document.getElementById('nav-menu')
-            // When we click on each nav__link, we remove the show-menu class
-            navMenu.classList.remove('show-menu')
-        }
-        navLink.forEach(n => n.addEventListener('click', linkAction))
+
         
         var timeouted;
   
@@ -113,3 +107,5 @@ function show_error(error){
     startService();
   })
   
+
+}

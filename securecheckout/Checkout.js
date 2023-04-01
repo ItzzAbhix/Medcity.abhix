@@ -71,7 +71,7 @@ function gpay(){
     setTimeout(function () {
       document.querySelector(".loader").style.display = "none";
       document.querySelector(".body").style.overflow = "auto";
-      window.location = "gpay.html";
+      window.location = "gpay";
     }, 3000);
 }
 
@@ -81,7 +81,7 @@ function paypal(){
     setTimeout(function () {
       document.querySelector(".loader").style.display = "none";
       document.querySelector(".body").style.overflow = "auto";
-      window.location = "paypal.html";
+      window.location = "paypal";
     }, 3000);
 }
 
@@ -241,7 +241,7 @@ function checkIfType(uid,orderNumber){
                 setTimeout(function () {
                     document.querySelector(".checkoutLoader").style.display = "none";
                     document.querySelector(".body").style.overflow = "auto";
-                   window.location.href = "OrderConfirmed.html?yerur9grrbrowuwouir9r85rbhhy87587g875g587g58g6748t4tiu4th847trgvri5tg48t74t4t87g85y48t7btfc87y48b4r833ub3uy83tbytty8g37tb84t44y8t42y878g4tuy38tb4897ffb3789r089bh3fiebyerpjeb=" + orderNumber;      
+                   window.location.href = "orderconfirmed?yerur9grrbrowuwouir9r85rbhhy87587g875g587g58g6748t4tiu4th847trgvri5tg48t74t4t87g85y48t7btfc87y48b4r833ub3uy83tbytty8g37tb84t44y8t42y878g4tuy38tb4897ffb3789r089bh3fiebyerpjeb=" + orderNumber;      
                     document.querySelector('.ccn').value ="";
                     document.querySelector('.ccv').value = "";
                     document.querySelector('.cn').value = ""; 
@@ -257,7 +257,7 @@ function checkIfType(uid,orderNumber){
         else {
             db.ref(usersRef).child(uid).child(checkoutChild).remove().then(() => {
                 setTimeout(function(){
-                      window.location.href = "OrderConfirmed.html?yerur9grrbrowuwouir9r85rbhhy87587g875g587g58g6748t4tiu4th847trgvri5tg48t74t4t87g85y48t7btfc87y48b4r833ub3uy83tbytty8g37tb84t44y8t42y878g4tuy38tb4897ffb3789r089bh3fiebyerpjeb=" + orderNumber;      
+                      window.location.href = "orderconfirmed?yerur9grrbrowuwouir9r85rbhhy87587g875g587g58g6748t4tiu4th847trgvri5tg48t74t4t87g85y48t7btfc87y48b4r833ub3uy83tbytty8g37tb84t44y8t42y878g4tuy38tb4897ffb3789r089bh3fiebyerpjeb=" + orderNumber;      
                   },8000)
             }).catch(function(){
                 show_error("We coudn't clear up few things before leaving. But your order was placed." + "<br>" + "You can leave this page now");

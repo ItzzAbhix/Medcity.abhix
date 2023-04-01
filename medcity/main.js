@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded',() => {
           
         if (uid != ''){
           db.ref(usersRef).child(uid).child(checkoutChild).remove().then(() => {
-            window.location.href = "index.html";
+            window.location.href = "../medcity/";
           });
         };
       };
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded',() => {
            
          if (uid != ''){
            db.ref(usersRef).child(uid).child(checkoutChild).remove().then(() => {
-             window.location.href = "index.html";
+             window.location.href = "../index.html/";
            });
          };
        };
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded',() => {
            
          if (uid != ''){
            db.ref(usersRef).child(uid).child(checkoutChild).remove().then(() => {
-             window.location.href = "index.html";
+             window.location.href = "../medcity/";
            });
          };
        };
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded',() => {
            
          if (uid != ''){
            db.ref(usersRef).child(uid).child('orderView').remove().then(() => {
-             window.location.href = "index.html";
+             window.location.href = "../medcity/";
            });
          };
        };
@@ -138,7 +138,7 @@ function load(){
           }
         }).catch(function(){
           firebase.auth().signOut().then(() => {
-            window.location = "/Error.html";
+            window.location = "/error.html";
           })
         })
       } else {
@@ -164,7 +164,7 @@ function skip() {
     document.querySelector(".body").style.overflow = "auto";
 }
 function conti() {
-  window.location = "Account/index.html";
+  window.location = "account/settings/";
 }
 
 var timeouted;

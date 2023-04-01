@@ -45,25 +45,6 @@ showMenu("nav-toggle", "nav-menu");
 
 
 
-function show_error(error){
-  var erorr_div = document.querySelector('.error-div');
-  var error_p = erorr_div.querySelector('.error .sub p');
- 
-  error_p.innerHTML = error;
-  erorr_div.style.zIndex = "999999";
-  erorr_div.style.right = "10px";
- 
-  setTimeout(function(){
-     error_p.innerHTML = "eerorr";
-     erorr_div.style.right = "-100%";
-     erorr_div.style.zIndex = "1";
-  },10000)
- }
- 
-  function close_error(){
-       document.querySelector('.error-div').style.right = "-100%";
-       document.querySelector('.error-div .error .sub p').innerHTML = "eerorr";
-   }
 
 
    var timeouted;
@@ -124,3 +105,24 @@ document.querySelector('.account-dropdown').addEventListener('mouseenter' , () =
 
 
 }
+
+
+function show_error(error){
+  var erorr_div = document.querySelector('.error-div');
+  var error_p = erorr_div.querySelector('.error .sub p');
+ 
+  error_p.innerHTML = error;
+  erorr_div.style.zIndex = "999999";
+  erorr_div.style.right = "10px";
+ 
+  setTimeout(function(){
+     error_p.innerHTML = "eerorr";
+     erorr_div.style.right = "-100%";
+     erorr_div.style.zIndex = "1";
+  },10000)
+ }
+ 
+  function close_error(){
+       document.querySelector('.error-div').style.right = "-100%";
+       document.querySelector('.error-div .error .sub p').innerHTML = "eerorr";
+   }

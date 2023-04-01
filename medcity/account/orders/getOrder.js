@@ -24,7 +24,7 @@ function startPage(){
       }
       else {
 
-       window.location = "/Error.html";
+       window.location = "/error";
 
       }
 

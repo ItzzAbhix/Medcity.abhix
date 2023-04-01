@@ -82,7 +82,7 @@ function donateSet2(amt,names){
                 }).then(function(){
                     document.querySelector('.msg').value = "";
                         document.querySelector('.amount-i').value = "₹10";
-                   window.location.href = "Donated.html?firebaeshyreipternlrbIOHEgiyerholerrererhouiryhouIUHUAUOhouurerbkuroeroName=" + name + "&firebajrererjrieUGUydoheuoreror-rioehpirhrheoreru9oouUIAHOI9golaPUJPOJpijpOIhoHOugiAmount=" + amount;
+                   window.location.href = "donated?firebaeshyreipternlrbIOHEgiyerholerrererhouiryhouIUHUAUOhouurerbkuroeroName=" + name + "&firebajrererjrieUGUydoheuoreror-rioehpirhrheoreru9oouUIAHOI9golaPUJPOJpijpOIhoHOugiAmount=" + amount;
                 }).catch(function(){
                     show_error("Opps...There was an error. Please reload and try again")
                 })

@@ -108,14 +108,14 @@
     document.addEventListener('DOMContentLoaded', () => {
           var pageLoaded = document.referrer;
 
-          if (pageLoaded.indexOf('/SecureCheckout/index.html') !== -1){
+          if (pageLoaded.indexOf('/securecheckout/') !== -1){
             ;
           }
           else {
             auth.onAuthStateChanged(function(user){
               if (user){
                 var uid = user.uid;
-               // window.location.href = "../Medcity/index.html?hureureeruoouho7893o3u8984ps84y49038434840943y834343y4083y438434y08=" + uid + "&opju33699634uy04949h43jruorwrrhrwrwrhwiyrrror8787r=true";
+               window.location.href = "../medcity/?hureureeruoouho7893o3u8984ps84y49038434840943y834343y4083y438434y08=" + uid + "&opju33699634uy04949h43jruorwrrhrwrwrhwiyrrror8787r=true";
               }
               else {
                 ;

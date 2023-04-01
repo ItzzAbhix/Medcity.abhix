@@ -153,7 +153,7 @@ function login() {
     document.querySelector(".loader").style.display = "flex";
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
       .then((userCredential) => {
-        window.location = "/medcity/index.html";
+        window.location = "/medcity/";
       })
       .catch((error) => {
         document.querySelector(".loader").style.display = "none";

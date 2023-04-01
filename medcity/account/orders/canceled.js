@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     var pageLoaded = document.referrer;
   
-    if (pageLoaded.indexOf('/Orders/') !== -1 && pageLoaded.indexOf('/Orders/Order.html') !== -1) {
+    if (pageLoaded.indexOf('/orders/') !== -1 && pageLoaded.indexOf('/orders/order') !== -1) {
      startPage();
     }
     else {
       auth.onAuthStateChanged(function(user){
         if (user){
           var uid = user.uid;
-        window.location.href = "../../index.html?ugujhofhrurhugourghu99uhuoh9e8r9r8reg79rerg8e7re789rere9rtifrrgugrukrl4t4uot747ytjyf67ufeole9pf9p="  + uid + "&huhr98ry48thohiuthtotuyreru=true"; 
+        window.location.href = "../../../medcity/?ugujhofhrurhugourghu99uhuoh9e8r9r8reg79rerg8e7re789rere9rtifrrgugrukrl4t4uot747ytjyf67ufeole9pf9p="  + uid + "&huhr98ry48thohiuthtotuyreru=true"; 
         }
         else {
           ;

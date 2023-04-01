@@ -74,7 +74,7 @@ var uid = UserUid;
       quantity:quantity,
   
     }).then(function(){
-      window.location = "../../../securecheckout/index.html";
+      window.location = "../../../securecheckout/";
     }).catch(function(){
           show_error("Oops...Coudn't Set Product Details." + "<br>" + "Please Reload And Try Again");
     })

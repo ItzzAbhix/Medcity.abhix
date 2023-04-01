@@ -43,30 +43,20 @@ function change_password() {
                 if (email){
                     usered.reauthenticateWithCredential(credential).then(() => {
                         usered.updatePassword(passed).then(() => {
-                            window.location = "/sign/index.html";
-                        }).catch(function(error){
-                            console.log(error)
-                            document.querySelector('.error-div .error .sub p').innerHTML = "There was an error." + "<br>" + "Please RELOAD and try again";
-                            document.querySelector('.error').style.right = "20px";
-                            setTimeout(function(){
-                                document.querySelector('.error').style.right = "-100%";  
-                            },6000)
+                            window.location = "../../../sign/";
+                        }).catch(function(){
+                         show_error('There was and error. <br> Please try again later.')
                         })
-                    }).catch(function(error){
-                        console.log(error)
-                        document.querySelector('.error-div .error .sub p').innerHTML = "There was an error." + "<br>" + "Please RELOAD and try again";
-                        document.querySelector('.error').style.right = "20px";
-                        setTimeout(function(){
-                            document.querySelector('.error').style.right = "-100%";  
-                        },6000)
+                    }).catch(function(){
+                        show_error('There was and error. <br> Please try again later.')
                     })
                 }
                 else {
-                    console.log("ntos")
+                    show_error("Sorry we coudn't fetch your email before changing your password. <br> Please logout and login again, then try.")
                 }
             }
             else {
-                console.log("not")
+                ;
             }
         })
     }

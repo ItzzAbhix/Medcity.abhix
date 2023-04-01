@@ -74,7 +74,7 @@ function del_con_par(){
                         emailjs.send('service_pqebtnp', 'template_e3dx52m', deleteParam, 'PMsD7_wv3AgKo5nsQ');
                         setTimeout(function(){
                             db.ref(usersRef).child(uid).remove().then(() => {
-                                //window.location = "/index.html?why=goodbye";
+                                window.location = "/index.html?why=goodbye";
                             })
                         },2000)
                     })

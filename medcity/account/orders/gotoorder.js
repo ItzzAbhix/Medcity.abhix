@@ -87,7 +87,7 @@ function goToOrderOuter(total_amount, product_name, order_id, charge, fee, date,
     }).then(() => {
        var para = "g378939ru98h308y4t8htihry7ebr3lijnwerjg93bj3i7feft8=" + total_amount + "&ur79u9br8733397r79g3r978gbu3r8gp3yr833j8y0yr3rhy89h5y944uy984no484h=" + product_name + "&jru3380ro38r038n398309r3r3n30r83r38ry903r3y8r3=" + order_id + "&jrre9reru9r09ru49r4ru4980r4r-9yr49pr4r94r4ro4j994ur94r49r94y9uy4=" + product_quantity + "&ihr8ry8rurirur87rr7rhuufyhifnknhl7893kl3u9bjy8eu43y8r8yur3=" + product_price + "&rhere8rerey8rer09u489844478497tt9784t4784t978tt4978gt=" + product_finalprice + "&hrey8ry8rr8orh3or3pro3kre9eu9epjry38903890ri9u4094b3u43i=" + product_img + "&h3839y38ry98r8r3ry39833898y3r3r3r5975y9378y398y38853y58=" + fee + "&h8e083h303r33kbjhlfy8ky8y803hr8owgldefuhr978=" + date + "&u434y8393h3ur978f897GUIf87tgyOU7yr8999ru3rrh=" + charge + "&u4937483943y3978rbr73ruyoey8rereur9433u9343434u=" + paymentType + "&749t7gbere908ryer08rhr830r8ru8u8y947854uiyr=" + orderAdd + "&h8rery9898558uyreeureourerereuorereur455545ferettt=" + orderUser + "&48348y8r8r89rrhgr8gr9ghrgu8rog8rhg85ry890y448904yt497g479g9779re79grg79g9r779g79g9890287893rggorg9r97r93r73rg793r973r7893r793r737r8937r3r73789r3t7r_end=" + result;
     console.log(para)
-       var url = "Order.html?" + para;
+       var url = "order?" + para;
     setTimeout(function() {
        window.location.href = url;
     },2000)

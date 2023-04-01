@@ -1,3 +1,4 @@
+
 function setOrderData(product_name,product_price,product_quantity,order_id,order_date,product_img,orderKey){
     product_name = product_name;
     product_price = product_price;
@@ -37,7 +38,7 @@ function setOrderInner( ordersDiv,html) {
         },3000);
     }
     else {
-        window.location = "/Error.html";
+        window.location = "/error";
     }
 }
 

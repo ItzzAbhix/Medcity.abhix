@@ -38,7 +38,7 @@ function startMedcity(){
     firebase.auth().onAuthStateChanged((user) => {
       if (user){
         var uid = user.uid;
-    window.location.href= "../Medcity/index.html?errhheurherruhiruereitrtrtrtwr4r4rh98y998hhre333d3r3r3reyrgeyre8yruyreyrer=" + uid + "&ureregiruugyyuT867fujeuru9jd;wehdwoejffoueholrn3ro38yr3rb3uyuy6g8uibhrer=true";
+    window.location.href= "../medcity/?errhheurherruhiruereitrtrtrtwr4r4rh98y998hhre333d3r3r3reyrgeyre8yruyreyrer=" + uid + "&ureregiruugyyuT867fujeuru9jd;wehdwoejffoueholrn3ro38yr3rb3uyuy6g8uibhrer=true";
     }
     else {
       ;

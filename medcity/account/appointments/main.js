@@ -10,14 +10,17 @@ function show_error(error){
    
     setTimeout(function(){
        error_p.innerHTML = "eerorr";
-       erorr_div.style.right = "-150%";
+       erorr_div.style.right = "-500%";
        erorr_div.style.zIndex = "1";
     },10000)
    }
 
    document.querySelector('.close-btn').addEventListener('click', function(){
-    document.querySelector('.error-div').style.right = "-150%";
+    document.querySelector('.error-div').style.right = "-500%";
 });
+
+
+function startMedcity(){
 
    function load() {
     document.querySelector(".body").style.overflow = "hidden";
@@ -101,3 +104,6 @@ function show_error(error){
   document.addEventListener('DOMContentLoaded', () => {
     startService();
   });
+
+
+}

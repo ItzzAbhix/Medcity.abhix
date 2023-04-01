@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector('.body').style.overflow = 'auto';
     var pageLoaded = document.referrer;
 
-    if (pageLoaded.indexOf('/securecheckout/') !== -1 && pageLoaded.indexOf('/securecheckout/index.html') !== -1){
+    if (pageLoaded.indexOf('/securecheckout/') !== -1){
        setNumber();
     }
-    else if(pageLoaded.indexOf('/securecheckout/') !== -1 && pageLoaded.indexOf('/securecheckout/gpay.html') !== -1){
+    else if(pageLoaded.indexOf('/securecheckout/') !== -1 && pageLoaded.indexOf('/securecheckout/gpay') !== -1){
         setNumber();
     } 
-    else if(pageLoaded.indexOf('/securecheckout/') !== -1 && pageLoaded.indexOf('/securecheckout/paypal.html') !== -1){
+    else if(pageLoaded.indexOf('/securecheckout/') !== -1 && pageLoaded.indexOf('/securecheckout/paypal') !== -1){
        setNumber();
     }
     else {
@@ -16,7 +16,7 @@ document.querySelector('.body').style.overflow = 'auto';
          if (user){
             setNumber()
             var uid = user.uid;
-            //window.location.href = "../Medcity/index.html?urhrtgyyehuothurt98c49y98h5475897u460y8984y9r8h08y4rp54n302yhr4ue898y49334890r494hf8f0fey=" + uid + "&ewuewu8h9ry84y89y34978fu4t93yt78yh5uorere43443eed3=true";
+            window.location.href = "../medcity/?urhrtgyyehuothurt98c49y98h5475897u460y8984y9r8h08y4rp54n302yhr4ue898y49334890r494hf8f0fey=" + uid + "&ewuewu8h9ry84y89y34978fu4t93yt78yh5uorere43443eed3=true";
          }
          else {
             ;
@@ -41,5 +41,5 @@ function setNumber(){
 }
 
 document.querySelector('.return-button').addEventListener('click', () => {
-    window.location = "../Medcity/index.html";
+    window.location = "../medcity/";
 })

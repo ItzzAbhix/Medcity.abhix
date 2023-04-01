@@ -64,7 +64,7 @@ function getOrderInner(orderKey, order){
    
   }
   else {
-   window.location = "/Error.html";
+   window.location = "/error";
   }
 
 

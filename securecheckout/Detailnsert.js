@@ -5,7 +5,7 @@ function startMedcityServices2(){
 
         db.ref(usersRef).child(UserUid).child(checkoutChild).once("value", function(snapshot) {
           if (!snapshot.exists()) {
-            window.location = "../Medcity/index.html";
+            window.location = "../medcity/";
           } else {
             billWorking();
           }
